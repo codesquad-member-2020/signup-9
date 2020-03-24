@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="../css/common/lib/reset.css">
     <link rel="stylesheet" type="text/css" href="../css/page/join.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- <script src="./join.js" type="module"></script> -->
+    <script src="../js/join.js" type="module"></script>
 </head>
 <body>
     <div id="header" class="join_membership">
@@ -21,21 +21,20 @@
                     <span class="ps_box int_id">
                         <input type="text" id="id" name="id" class="int" title="ID" maxlength="20">
                     </span>
-                    <span class="error_next_box" id="idMsg" style="display:none" aria-live="assertive">이미 사용중인 아이디입니다.</span>
+                    <span class="error_next_box" id="idMsg" aria-live="assertive"></span>
                 </div>
                 <div class="join_row">
                     <h3 class="join_title"><label for="pswd1">비밀번호</label></h3>
                     <span class="ps_box int_pass" id="pswd1Img">
                         <input type="password" id="pswd1" name="pswd1" class="int" title="비밀번호 입력" aria-describedby="pswd1Msg" maxlength="16">
                     </span>
-                    <span class="error_next_box" id="pswd1Msg_Error" style="display:none" aria-live="assertive">5~20자의 영문 소문자, 숫자와 특수기호(_)만 사용 가능합니다.</span>
-                    <span class="ok_next_box" id="pswd1Msg_OK" style="display:none" aria-live="assertive">안전한 비밀번호입니다.</span>
+                    <span class="error_next_box" id="pswd1Msg_Error" aria-live="assertive"></span>
     
                     <h3 class="join_title"><label for="pswd2">비밀번호 재확인</label></h3>
                     <span class="ps_box int_pass_check" id="pswd2Img">
                         <input type="password" id="pswd2" name="pswd2" class="int" title="비밀번호 재확인 입력" aria-describedby="pswd2Blind" maxlength="16">
                     </span>
-                    <span class="error_next_box" id="pswd2Msg" style="display:none" aria-live="assertive">비밀번호가 일치하지 않습니다.</span>
+                    <span class="error_next_box" id="pswd2Msg" aria-live="assertive"></span>
                 </div>
 
                 <div class="join_row">
@@ -43,7 +42,7 @@
                     <span class="ps_box box_right_space">
                         <input type="text" id="name" name="name" title="이름" class="int" maxlength="40">
                     </span>
-                    <span class="error_next_box" id="nameMsg" style="display:none" aria-live="assertive"></span>
+                    <span class="error_next_box" id="nameMsg" aria-live="assertive"></span>
                 </div>
     
                 <div class="join_row join_birthday">
@@ -103,9 +102,7 @@
                             </span>
                         </div>
                     </div>
-                    <span class="error_next_box" id="birthdayMsg_Year" style="display:none" aria-live="assertive">태어난 년도 4자리를 정확하게 입력해주세요.</span>
-                    <span class="error_next_box" id="birthdayMsg_Month" style="display:none" aria-live="assertive">태어난 월을 선택해주세요.</span>
-                    <span class="error_next_box" id="birthdayMsg_Day" style="display:none" aria-live="assertive">태어난 일 두자리를 정확하게 입력해주세요.</span>
+                    <span class="error_next_box" id="birthdayMsg" aria-live="assertive"></span>
                 </div>
     
                 <div class="join_row join_gender">
@@ -118,7 +115,7 @@
                         </select>
                     </div>
                 </div>
-                <span class="error_next_box" id="genderMsg" style="display:none" aria-live="assertive"></span>
+                <span class="error_next_box" id="genderMsg" aria-live="assertive"></span>
     
                 <div class="join_row join_email">
                     <h3 class="join_title"><label for="email">이메일</label></h3>
@@ -126,7 +123,7 @@
                         <input type="text" id="email" name="email" class="int" maxlength="100">
                     </span>
                 </div>
-                <span class="error_next_box" id="emailMsg" style="display:none" aria-live="assertive">이메일 주소를 다시 확인해주세요.</span>
+                <span class="error_next_box" id="emailMsg" aria-live="assertive"></span>
     
                 <div class="join_row join_mobile" id="mobDiv">
                     <h3 class="join_title"><label for="phoneNo">휴대전화</label></h3>
@@ -136,7 +133,7 @@
                         </span>
                     </div>
     
-                    <span class="error_next_box" id="phoneNoMsg" style="display:none" aria-live="assertive">형식에 맞지 않는 번호입니다.</span>
+                    <span class="error_next_box" id="phoneNoMsg" aria-live="assertive"></span>
                 </div>
 
                 <div class="join_row join_favorite">
@@ -145,7 +142,7 @@
                         <input type="text" id="favorite" name="favorite" class="int" maxlength="100">
                     </span>
                 </div>
-                <span class="error_next_box" id="favoriteMsg" style="display:none" aria-live="assertive">관심사를 3개 이상 입력해주세요.</span>
+                <span class="error_next_box" id="favoriteMsg" aria-live="assertive"></span>
 
                 <h3 class="join_title"><label for="agreement">약관에 동의합니다. </label><input name="U_checkAgreement1" type="checkbox" value="" id="U_checkAgreement1"/></h3>
     
