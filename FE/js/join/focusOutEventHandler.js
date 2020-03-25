@@ -1,5 +1,6 @@
 import validationCheck from "./validationCheck.js"
 import {fetchRequest} from "../common/fetchRequest.js"
+import { joinValueStatus } from "./joinValueStatus.js";
 
 const userIdHandler = (event, userId) => {
     console.log("userIdHandler");
@@ -39,7 +40,11 @@ const birthdayHandler = (event, birthDay) => {
 
 const genderHandler = (event, gender) => {
     console.log("genderHandler");
+    
     const result = validationCheck.checkGender(gender);
+
+    document.getElementById(event.target.id + "Msg").innerHTML = result.message;
+    joinValueStatus.callChangeGenderValid(result.validation);
 }
 
 const emailHandler = (event, email) => {
