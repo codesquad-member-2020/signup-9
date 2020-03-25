@@ -1,5 +1,5 @@
 import validationCheck from "./validationCheck.js"
-import {fetchRequest} from "./fetchRequest.js"
+import {fetchRequest} from "../common/fetchRequest.js"
 
 const resetHandler = (event, value) => {
     console.log("resetHandler");
