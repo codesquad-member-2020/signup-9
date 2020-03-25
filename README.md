@@ -27,25 +27,20 @@ Request : { "email" : "guswns1659@naver.com"}
 Response : { "email" : "guswns1659@naver.com", "vaildation" : "true"}
 ```
 
-- password 유효성 검사 후 전달 : 
-```
-Request : {"password" : "1234"} 
-Response : { "DB" : "success" } 
-```
-
 - Phone number : 
 ```
-Request : { "phoneNumber" : "010-1234-1234"}
-Response : { "DB" : "success" } 
+Request : { "phoneNumber" : "01012341234" }
+Response : { "phoneNumber" : "01012341234", "vaildation" : "true" } 
 ```
 
-- 로그인 : 
+- **(추후논의)로그인** : 
 ```
-Request : { "userId" : "guswns1659", "password" : "1234"}
-Response : 로그인 성공 시 main.html / 로그인 실패 시 login.html(로그인 화면)
+Request : { "userId" : "guswns1659", "password" : "1234" }
+Response : 로그인 성공 시 main.html / 로그인 실패 시 { "userId" : "guswns1659", "vaildation" : "false" }
 ```
 
-- 회원가입 : 
+- **(추후논의)회원가입** : 
+
 ```
 Request : 
 { "userId" : "guswns1659",
@@ -55,12 +50,12 @@ Request :
    ....., 
   "favorite" : ['관심사1', '관심사2', '관심사3']}
 
-Response : main.html 
+Response : main.html
 ```
 
 ### URL 
-- 중복 ID 확인 : POST localhost:8080/user-id-vaildation
-- 중복 EMAIL 확인 : POST localhost:8080/email-vaildation
-- 중복 핸드폰 번호 확인 : POST localhost:8080/phone-number-vaildation
-- 가입하기 : POST localhost:8080/user-registration
-- 로그인 : POST localhost:8080/login
+- 중복 ID 확인 : POST 37b0ab9f-726b-4389-9041-add27b33e400.mock.pstmn.io/user-id-vaildation
+- 중복 EMAIL 확인 : POST 37b0ab9f-726b-4389-9041-add27b33e400.mock.pstmn.io/email-vaildation
+- 중복 핸드폰 번호 확인 : POST 37b0ab9f-726b-4389-9041-add27b33e400.mock.pstmn.io/phone-number-vaildation
+- 가입하기 : POST 37b0ab9f-726b-4389-9041-add27b33e400.mock.pstmn.io/user-registration
+- 로그인 : POST 37b0ab9f-726b-4389-9041-add27b33e400.mock.pstmn.io/login
