@@ -19,12 +19,13 @@ public class HomeController {
     private UserRepository userRepository;
 
     @GetMapping("hello")
-    public String index() {
+    public User index() {
 
         User user = new User("zmdk1127@naver.com", "jun", LocalDate.now());
+        userRepository.save(user);
         logger.info("user : {}", user);
 
-        return "Hello Springboot!";
+        return user;
     }
 }
 
