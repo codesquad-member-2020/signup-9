@@ -55,7 +55,22 @@ const checkEmail = (email) => {
 }
 
 const checkPhone = (phone) => {
-    return;
+    let resultValue = false;
+    let messageValue = "";
+
+    if (typeof phone == 'undefined' || !phone || phone.length === 0 || phone === "" || !/[^\s]/.test(phone) || /^\s*$/.test(phone) || phone.replace(/\s/g,"") === "") {
+        resultValue = false;
+        messageValue = "휴대폰 번호를 입력해주세요."
+    }
+    else if (/^010\d{3,4}\d{4}$/.test(phone)) {
+        resultValue = true;
+    }
+    else {
+        resultValue = false;
+        messageValue = "형식에 맞지 않은 번호입니다."
+    }
+
+    return {validation: resultValue, message: messageValue};
 }
 
 const checkFavorite = (favorites) => {

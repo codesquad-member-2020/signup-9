@@ -58,6 +58,9 @@ const emailHandler = (event, email) => {
 const phoneHandler = (event, phone) => {
     console.log("phoneHandler");
     const result = validationCheck.checkPhone(phone);
+
+    document.getElementById(event.target.id + "Msg").innerHTML = result.message;
+    joinValueStatus.callChangePhoneValid(result.validation);
 }
 
 const favoriteHandler = (event, favorites) => {
