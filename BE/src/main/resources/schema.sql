@@ -15,5 +15,5 @@ CREATE TABLE user
 
 insert into user
 values (1, 'guswns1659', 'jack', '1234', '19930810', 1,
-        'zmdk1127@naver.com', '01077207958', '수영', '밥', '축구');
+        'zmdk1127@naver.com', '01012341234', '수영', '밥', '축구');
 
