@@ -1,8 +1,9 @@
-import validationCheck from "./validationCheck.js"
-import {fetchRequest} from "../common/fetchRequest.js"
-import { joinValueStatus } from "./joinValueStatus.js";
-import URL from "../common/url.js"
-import WARNING_MESSAGE from "./warningMessage.js"
+import validationCheck from "./validationCheck.js";
+import {fetchRequest} from "../common/fetchRequest.js";
+import {joinValueStatus} from "./joinValueStatus.js";
+import URL from "../common/url.js";
+import WARNING_MESSAGE from "./warningMessage.js";
+import {KEYVALUE} from "../common/jsonKeyValue.js";
 
 const userIdHandler = (event, userId) => {
     console.log("userIdHandler");
@@ -41,15 +42,12 @@ const birthdayHandler = (event, birthDay) => {
 }
 
 const genderHandler = (event, gender) => {
-    console.log("genderHandler");
-    
     const result = validationCheck.checkGender(gender);
 
     handleResult(event, result);
 }
 
 const emailHandler = (event, email) => {
-    console.log("emailHandler");
     let result = validationCheck.checkEmail(email);
 
     handleResult(event, result);
@@ -57,11 +55,12 @@ const emailHandler = (event, email) => {
     if (result.validation === false)
         return
 
-    const data = { userId: email }
+    const data = {[KEYVALUE.EMAIL]: email};
 
-    fetchRequest(URL.MOCKUP_URL.EMAIL, data)
+    fetchRequest(URL.SERVICE_URL.EMAIL, data)
         .then(response => response.json())
         .then(response => {
+            console.log(response);
             result.validation = response.validation;
 
             if (response.validation === false) {
@@ -73,7 +72,6 @@ const emailHandler = (event, email) => {
 }
 
 const phoneHandler = (event, phone) => {
-    console.log("phoneHandler");
     const result = validationCheck.checkPhone(phone);
 
     handleResult(event, result);
@@ -81,9 +79,9 @@ const phoneHandler = (event, phone) => {
     if (result.validation === false)
         return
 
-    const data = { phoneNumber: phone }
+    const data = {[KEYVALUE.PHONE]: phone};
 
-    fetchRequest(URL.MOCKUP_URL.PHONE, data)
+    fetchRequest(URL.SERVICE_URL.PHONE, data)
         .then(response => response.json())
         .then(response => {
             result.validation = response.validation;
