@@ -50,6 +50,9 @@ const genderHandler = (event, gender) => {
 const emailHandler = (event, email) => {
     console.log("emailHandler");
     const result = validationCheck.checkEmail(email);
+
+    document.getElementById(event.target.id + "Msg").innerHTML = result.message;
+    joinValueStatus.callChangeEmailValid(result.validation);
 }
 
 const phoneHandler = (event, phone) => {
