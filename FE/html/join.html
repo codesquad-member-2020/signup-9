@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="../css/common/lib/reset.css">
     <link rel="stylesheet" type="text/css" href="../css/page/join.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <script src="../js/join.js" type="module"></script>
+    <script src="../js/join/join.js" type="module"></script>
 </head>
 <body>
     <div id="header" class="join_membership">
@@ -28,7 +28,7 @@
                     <span class="ps_box int_pass" id="pswd1Img">
                         <input type="password" id="pswd1" name="pswd1" class="int" title="비밀번호 입력" aria-describedby="pswd1Msg" maxlength="16">
                     </span>
-                    <span class="error_next_box" id="pswd1Msg_Error" aria-live="assertive"></span>
+                    <span class="error_next_box" id="pswd1Msg" aria-live="assertive"></span>
     
                     <h3 class="join_title"><label for="pswd2">비밀번호 재확인</label></h3>
                     <span class="ps_box int_pass_check" id="pswd2Img">
@@ -144,7 +144,7 @@
                 </div>
                 <span class="error_next_box" id="favoriteMsg" aria-live="assertive"></span>
 
-                <h3 class="join_title"><label for="agreement">약관에 동의합니다. </label><input name="U_checkAgreement1" type="checkbox" value="" id="U_checkAgreement1"/></h3>
+                <h3 class="join_title"><label for="agreement">약관에 동의합니다. </label><input name="agreement" type="checkbox" value="" id="agreement"/></h3>
                 <span class="error_next_box" id="agreementMsg" aria-live="assertive"></span>
     
                 <div class="btn_area">
