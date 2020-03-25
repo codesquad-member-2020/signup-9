@@ -1,3 +1,5 @@
+import WARNING_MESSAGE from "./warningMessage.js"
+
 const checkUserId = (userId) => {
     return;
 }
@@ -25,7 +27,7 @@ const checkGender = (gender) => {
     if (typeof gender == 'undefined' || !gender || gender.length === 0 || gender === "" || !/[^\s]/.test(gender) || /^\s*$/.test(gender) || gender.replace(/\s/g,"") === "")
     {
         resultValue = false;
-        messageValue = "성별을 선택해주세요.";
+        messageValue = WARNING_MESSAGE.GENDER.NOT_SELECTED;
     }
     else
     {
@@ -41,14 +43,14 @@ const checkEmail = (email) => {
 
     if (typeof email == 'undefined' || !email || email.length === 0 || email === "" || !/[^\s]/.test(email) || /^\s*$/.test(email) || email.replace(/\s/g,"") === "") {
         resultValue = false;
-        messageValue = "이메일 주소를 입력해주세요."
+        messageValue = WARNING_MESSAGE.EMAIL.NOT_ENTERED;
     }
     else if (/^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i.test(email)) {
         resultValue = true;
     }
     else {
         resultValue = false;
-        messageValue = "이메일 주소를 다시 확인해주세요."
+        messageValue = WARNING_MESSAGE.EMAIL.WRONG_EXPRESSION;
     }
 
     return {validation: resultValue, message: messageValue};
@@ -60,14 +62,14 @@ const checkPhone = (phone) => {
 
     if (typeof phone == 'undefined' || !phone || phone.length === 0 || phone === "" || !/[^\s]/.test(phone) || /^\s*$/.test(phone) || phone.replace(/\s/g,"") === "") {
         resultValue = false;
-        messageValue = "휴대폰 번호를 입력해주세요."
+        messageValue = WARNING_MESSAGE.PHONE.NOT_ENTERED;
     }
     else if (/^010\d{3,4}\d{4}$/.test(phone)) {
         resultValue = true;
     }
     else {
         resultValue = false;
-        messageValue = "형식에 맞지 않은 번호입니다."
+        messageValue = WARNING_MESSAGE.PHONE.WRONG_EXPRESSION;
     }
 
     return {validation: resultValue, message: messageValue};

@@ -1,3 +1,5 @@
+import {ELEMENT_ID} from "../common/constant.js"
+
 const joinValueStatus = (function() 
 {
     let isUserIdValid = false;
@@ -10,6 +12,53 @@ const joinValueStatus = (function()
     let isPhoneValid = false;
     let isFavoriteValid = false;
     let isAgreementValid = false;
+
+    const changeValid = function(eventId, val) {
+        switch(eventId) {
+            case ELEMENT_ID.ID: {
+                changeUserIdValid(val);
+                break;
+            }
+            case ELEMENT_ID.PASSWORD: {
+                changePasswordValid(val);
+                break;
+            }
+            case ELEMENT_ID.PASSWORD_RECONFIRM: {
+                changePasswordReconfirmValid(val);
+                break;
+            }
+            case ELEMENT_ID.NAME: {
+                changeNameValid(val);
+                break;
+            }
+            case ELEMENT_ID.YEAR:
+            case ELEMENT_ID.MONTH:
+            case ELEMENT_ID.DAY: {
+                changeBirthdayValid(val);
+                break;
+            }
+            case ELEMENT_ID.GENDER: {
+                changeGenderValid(val);
+                break;
+            }
+            case ELEMENT_ID.EMAIL: {
+                changeEmailValid(val);
+                break;
+            }
+            case ELEMENT_ID.PHONE: {
+                changePhoneValid(val);
+                break;
+            }
+            case ELEMENT_ID.FAVORITE: {
+                changeFavoriteValid(val);
+                break;
+            }
+            case ELEMENT_ID.AGREE: {
+                changeAgreementValid(val);
+                break;
+            }
+        }
+    }
 
     const changeUserIdValid = function(userIdValid) {
         isUserIdValid = userIdValid;
@@ -52,35 +101,8 @@ const joinValueStatus = (function()
     }
 
     return { 
-        callChangeUserIdValid: function (val) { 
-            changeUserIdValid(val); 
-        },
-        callChangePasswordValid: function (val) {
-            changePasswordValid(val);
-        },
-        callChangePasswordReconfirmValid: function (val) {
-            changePasswordReconfirmValid(val);
-        },
-        callChangeNameValid: function (val) {
-            changeNameValid(val);
-        },
-        callChangeBirthdayValid: function (val) {
-            changeBirthdayValid(val);
-        },
-        callChangeGenderValid: function (val) {
-            changeGenderValid(val);
-        },
-        callChangeEmailValid: function (val) {
-            changeEmailValid(val);
-        },
-        callChangePhoneValid: function (val) {
-            changePhoneValid(val);
-        },
-        callChangeFavoriteValid: function (val) {
-            changeFavoriteValid(val);
-        },
-        callChangeAgreementValid: function (val) {
-            changeAgreementValid(val);
+        callChangeValid: function(event, val) {
+            changeValid(event, val);
         },
         userIdValid: function() {
             return isUserIdValid;

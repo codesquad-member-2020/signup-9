@@ -1,6 +1,8 @@
 import validationCheck from "./validationCheck.js"
 import {fetchRequest} from "../common/fetchRequest.js"
 import { joinValueStatus } from "./joinValueStatus.js";
+import URL from "../common/url.js"
+import WARNING_MESSAGE from "./warningMessage.js"
 
 const userIdHandler = (event, userId) => {
     console.log("userIdHandler");
@@ -43,29 +45,69 @@ const genderHandler = (event, gender) => {
     
     const result = validationCheck.checkGender(gender);
 
-    document.getElementById(event.target.id + "Msg").innerHTML = result.message;
-    joinValueStatus.callChangeGenderValid(result.validation);
+    handleResult(event, result);
 }
 
 const emailHandler = (event, email) => {
     console.log("emailHandler");
-    const result = validationCheck.checkEmail(email);
+    let result = validationCheck.checkEmail(email);
 
-    document.getElementById(event.target.id + "Msg").innerHTML = result.message;
-    joinValueStatus.callChangeEmailValid(result.validation);
+    handleResult(event, result);
+
+    if (result.validation === false)
+        return
+
+    const data = { userId: email }
+
+    fetchRequest(URL.MOCKUP_URL.EMAIL, data)
+        .then(response => response.json())
+        .then(response => {
+            result.validation = response.validation;
+
+            if (response.validation === false) {
+                result.message = WARNING_MESSAGE.EMAIL.ALREADY_JOINED;
+            }
+
+            handleResult(event, result);
+        });
 }
 
 const phoneHandler = (event, phone) => {
     console.log("phoneHandler");
     const result = validationCheck.checkPhone(phone);
 
-    document.getElementById(event.target.id + "Msg").innerHTML = result.message;
-    joinValueStatus.callChangePhoneValid(result.validation);
+    handleResult(event, result);
+
+    if (result.validation === false)
+        return
+
+    const data = { phoneNumber: phone }
+
+    fetchRequest(URL.MOCKUP_URL.PHONE, data)
+        .then(response => response.json())
+        .then(response => {
+            result.validation = response.validation;
+
+            if (response.validation === false) {
+                result.message = WARNING_MESSAGE.PHONE.ALREADY_JOINED;
+            }
+
+            handleResult(event, result);
+        });
 }
 
 const favoriteHandler = (event, favorites) => {
     console.log("favoriteHandler");
     const result = validationCheck.checkFavorite(favorites);
+}
+
+const handleResult = (event, result) => {
+    const warningMsgModifier = "Msg";
+    const warningMsgElement = event.target.id + warningMsgModifier;
+    const targetElement = document.getElementById(warningMsgElement);
+    
+    targetElement.innerHTML = result.message;
+    joinValueStatus.callChangeValid(event.target.id, result.validation);
 }
 
 const focusoutEventHandler = Object.freeze({
