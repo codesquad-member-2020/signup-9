@@ -19,7 +19,20 @@ const checkBirthday = (year, month, day) => {
 }
 
 const checkGender = (gender) => {
-    return;
+    let resultValue = false;
+    let messageValue = "";
+
+    if (typeof gender == 'undefined' || !gender || gender.length === 0 || gender === "" || !/[^\s]/.test(gender) || /^\s*$/.test(gender) || gender.replace(/\s/g,"") === "")
+    {
+        resultValue = false;
+        messageValue = "성별을 선택해주세요.";
+    }
+    else
+    {
+        resultValue = true;
+    }
+
+    return {validation: resultValue, message: messageValue};
 }
 
 const checkEmail = (email) => {
