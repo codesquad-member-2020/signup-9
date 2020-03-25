@@ -2,21 +2,35 @@ package com.codesquad.signup.domain;
 
 import org.springframework.data.annotation.Id;
 
-import java.time.LocalDate;
-
 public class User {
 
     @Id
-    Long id;
+    private Long id;
+    private String userId;
+    private String name;
+    private String password;
+    private String birthDate;
+    private Integer gender;
+    private String email;
+    private String phoneNumber;
+    private String favoriteOne;
+    private String favoriteTwo;
+    private String favoriteThree;
 
-    String email;
-    String name;
-    LocalDate createdDate;
-
-    public User(String email, String name, LocalDate createdDate) {
-        this.email = email;
+    public User(String userId, String name, String password,
+                String birthDate, Integer gender, String email,
+                String phoneNumber, String favoriteOne, String favoriteTwo,
+                String favoriteThree) {
+        this.userId = userId;
         this.name = name;
-        this.createdDate = createdDate;
+        this.password = password;
+        this.birthDate = birthDate;
+        this.gender = gender;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.favoriteOne = favoriteOne;
+        this.favoriteTwo = favoriteTwo;
+        this.favoriteThree = favoriteThree;
     }
 
     public Long getId() {
@@ -27,12 +41,12 @@ public class User {
         this.id = id;
     }
 
-    public String getEmail() {
-        return email;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public String getName() {
@@ -43,21 +57,84 @@ public class User {
         this.name = name;
     }
 
-    public LocalDate getCreatedDate() {
-        return createdDate;
+    public String getPassword() {
+        return password;
     }
 
-    public void setCreatedDate(LocalDate createdDate) {
-        this.createdDate = createdDate;
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(String birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    public Integer getGender() {
+        return gender;
+    }
+
+    public void setGender(Integer gender) {
+        this.gender = gender;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getFavoriteOne() {
+        return favoriteOne;
+    }
+
+    public void setFavoriteOne(String favoriteOne) {
+        this.favoriteOne = favoriteOne;
+    }
+
+    public String getFavoriteTwo() {
+        return favoriteTwo;
+    }
+
+    public void setFavoriteTwo(String favoriteTwo) {
+        this.favoriteTwo = favoriteTwo;
+    }
+
+    public String getFavoriteThree() {
+        return favoriteThree;
+    }
+
+    public void setFavoriteThree(String favoriteThree) {
+        this.favoriteThree = favoriteThree;
     }
 
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", email='" + email + '\'' +
+                ", userId='" + userId + '\'' +
                 ", name='" + name + '\'' +
-                ", createdDate=" + createdDate +
+                ", password='" + password + '\'' +
+                ", birthDate=" + birthDate +
+                ", gender=" + gender +
+                ", email='" + email + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", favoriteOne='" + favoriteOne + '\'' +
+                ", favoriteTwo='" + favoriteTwo + '\'' +
+                ", favoriteThree='" + favoriteThree + '\'' +
                 '}';
     }
 }

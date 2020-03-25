@@ -1,5 +1,6 @@
 package com.codesquad.signup;
 
+import com.codesquad.signup.domain.User;
 import com.codesquad.signup.domain.UserRepository;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 @RestController
 public class ApiUserController {
@@ -30,16 +32,24 @@ public class ApiUserController {
 
         logger.info("userId : {}", parsedUserId);
 
-        // DB에서 유효성 체크
-//        userRepository.f
+        try {
+            // DB에서 유효성 체크
+            Optional<User> user = userRepository.findByUserId(parsedUserId);
+            user.orElseThrow(() -> new IllegalStateException("false"));
+        } catch (IllegalStateException e) {
+            logger.info("에러 실행?");
+
+            Map<String, String> map = new HashMap<>();
+            map.put("userId", parsedUserId);
+            map.put("vaildation", e.getMessage());
+            return new JSONObject(map);
+        }
 
         // 결과를 json으로 만드는법.
         Map<String, String> map = new HashMap<>();
-        map.put("userId", "guswns1659");
-        map.put("vaildation", "false");
+        map.put("userId", parsedUserId);
+        map.put("vaildation", "true");
 
-        JSONObject jsonObject2 = new JSONObject(map);
-
-        return jsonObject2;
+        return new JSONObject(map);
     }
 }
