@@ -136,7 +136,7 @@
                     <span class="error_next_box" id="phoneNoMsg" aria-live="assertive"></span>
                 </div>
 
-                <div class="join_row join_favorite">
+                <div class="join_row join_favorite" id="favoriteDiv">
                     <h3 class="join_title"><label for="favorite">관심사</label></h3>
                     <span class="ps_box_favorite int_favorite box_right_space">
                         <input type="text" id="favorite" name="favorite" class="int" maxlength="100">
@@ -145,10 +145,11 @@
                 <span class="error_next_box" id="favoriteMsg" aria-live="assertive"></span>
 
                 <h3 class="join_title"><label for="agreement">약관에 동의합니다. </label><input name="U_checkAgreement1" type="checkbox" value="" id="U_checkAgreement1"/></h3>
+                <span class="error_next_box" id="agreementMsg" aria-live="assertive"></span>
     
                 <div class="btn_area">
-                    <button type="button" id="btnReset" class="btn_type btn_primary"><span>초기화</span></button>
-                    <button type="button" id="btnJoin" class="btn_type btn_primary"><span>가입하기</span></button>
+                    <button type="button" id="btnReset" class="btn_type btn_primary">초기화</button>
+                    <button type="button" id="btnJoin" class="btn_type btn_primary">가입하기</button>
                 </div>
             </div>
     </form>
