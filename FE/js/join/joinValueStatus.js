@@ -11,7 +11,7 @@ const joinValueStatus = (function()
     let isFavoriteValid = false;
     let isAgreementValid = false;
 
-    const changeUserValid = function(userIdValid) {
+    const changeUserIdValid = function(userIdValid) {
         isUserIdValid = userIdValid;
     }
 
@@ -52,8 +52,8 @@ const joinValueStatus = (function()
     }
 
     return { 
-        callChangeUserValid: function (val) { 
-            changeUserValid(val); 
+        callChangeUserIdValid: function (val) { 
+            changeUserIdValid(val); 
         },
         callChangePasswordValid: function (val) {
             changePasswordValid(val);
