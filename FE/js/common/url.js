@@ -1,9 +1,9 @@
 const MOCKUP_URL = Object.freeze({
-    ID: "http://37b0ab9f-726b-4389-9041-add27b33e400.mock.pstmn.io/user-id-vaildation",
-    EMAIL: "http://37b0ab9f-726b-4389-9041-add27b33e400.mock.pstmn.io/email-vaildation",
-    PHONE: "http://37b0ab9f-726b-4389-9041-add27b33e400.mock.pstmn.io/phone-number-vaildation",
-    JOIN: "http://37b0ab9f-726b-4389-9041-add27b33e400.mock.pstmn.io/user-registration",
-    LOGIN: "http://37b0ab9f-726b-4389-9041-add27b33e400.mock.pstmn.io/login"
+    ID: "https://dev-angelo.dlinkddns.com:8090/user-id-vaildation",
+    EMAIL: "https://dev-angelo.dlinkddns.com:8090/email-vaildation",
+    PHONE: "https://dev-angelo.dlinkddns.com:8090/phone-number-vaildation",
+    JOIN: "https://dev-angelo.dlinkddns.com:8090/user-registration",
+    LOGIN: "https://dev-angelo.dlinkddns.com:8090/login"
 });
 
 const SERVICE_URL = Object.freeze({
