@@ -30,7 +30,8 @@ const checkPasswordReconfirm = (password, reconfirmPassword) => {
 }
 
 const checkName = (name) => {
-    return;
+    if(name==="") return "필수 정보입니다.";
+    return "";
 }
 
 const checkBirthday = (year, month, day) => {
