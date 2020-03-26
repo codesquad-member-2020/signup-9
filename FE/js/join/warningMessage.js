@@ -14,5 +14,9 @@ const PHONE = Object.freeze({
     ALREADY_JOINED: "중복된 이메일 주소입니다.",
 });
 
+const FAVORITE = Object.freeze({
+    LACK_OF_COUNT: "3개 이상의 관심사를 입력하세요.",
+});
 
-export default {GENDER, EMAIL, PHONE};
+
+export default {GENDER, EMAIL, PHONE, FAVORITE};

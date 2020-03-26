@@ -1,10 +1,12 @@
 import {getElementValue} from "./valueProvider.js"
 import {focusoutEventHandler} from "./focusOutEventHandler.js"
 import {clickEventHandler} from "./clickEventHandler.js"
-import {appendFocusOutEvent, appendClickEvent} from "../common/eventListenerAppender.js";
+import {inputEventHandler} from "./inputEventHandler.js"
+import {appendEvent} from "../common/eventListenerAppender.js";
 
 window.addEventListener('DOMContentLoaded', () => {
     const rootElement = document.getElementById('join_form');
-    appendFocusOutEvent(rootElement, focusoutEventHandler, getElementValue);
-    appendClickEvent(rootElement, clickEventHandler, getElementValue);
+    appendEvent(rootElement, focusoutEventHandler, getElementValue, 'focusout');
+    appendEvent(rootElement, clickEventHandler, getElementValue, 'click');
+    appendEvent(rootElement, inputEventHandler, getElementValue, 'input');
 });

@@ -93,7 +93,16 @@ const checkPhone = (phone) => {
 }
 
 const checkFavorite = (favorites) => {
-    return;
+    let resultValue = false;
+    let messageValue = "";
+    const miminumCount = 3;
+    
+    if (favorites.length < miminumCount) {
+        resultValue = false;
+        messageValue = WARNING_MESSAGE.FAVORITE.LACK_OF_COUNT;
+    }
+
+    return {validation: resultValue, message: messageValue};
 }
 
 const checkAgreement = (checked) => {

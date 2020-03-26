@@ -106,7 +106,13 @@ const phoneHandler = (event, phone) => {
 
 const favoriteHandler = (event, favorites) => {
     console.log("favoriteHandler");
+
+    event.target.value = '';
     const result = validationCheck.checkFavorite(favorites);
+
+    handleResult(event, result);
+    
+    console.log(favorites.length);
 }
 
 const handleResult = (event, result) => {
