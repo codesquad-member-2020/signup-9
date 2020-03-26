@@ -6,8 +6,12 @@ import WARNING_MESSAGE from "./warningMessage.js";
 import {KEYVALUE} from "../common/jsonKeyValue.js";
 
 const userIdHandler = (event, userId) => {
-    console.log("userIdHandler");
     const result = validationCheck.checkUserId(userId);
+    const idMsg = document.getElementById("idMsg");
+    
+    idMsg.innerHTML = result;
+  
+    (result === "사용 가능한 아이디입니다.") ? changeClass(idMsg, "ok_next_box") : changeClass(idMsg, "error_next_box");
 
     //document.getElementById("idMsg").innerHTML= result;
 
@@ -121,5 +125,11 @@ const focusoutEventHandler = Object.freeze({
     "phoneNo": phoneHandler,
     "favorite": favoriteHandler,
 });
+
+function changeClass(element, newClassName) {
+    const beforeClassName = element.className;
+    element.classList.remove(beforeClassName);
+    element.classList.add(newClassName);
+  }
 
 export {focusoutEventHandler};
