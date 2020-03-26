@@ -9,12 +9,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.Optional;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
-public class ApiVaildationControllerTest {
+public class ApiValidationControllerTest {
 
-    private Logger logger = LoggerFactory.getLogger(ApiVaildationControllerTest.class);
+    private Logger logger = LoggerFactory.getLogger(ApiValidationControllerTest.class);
 
     @Autowired
     private UserRepository userRepository;
