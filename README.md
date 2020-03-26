@@ -5,6 +5,7 @@
 ### 온라인 모임 일시 및 장소 
 - 월 ~ 금 오전 10:00 행아웃 출근! 
 - 지각 시 2000원.
+- 지각비 : 4000원
 
 ### 커밋 메세지 형식 
 - [FEAT]: 개선하거나 신기능 추가
@@ -18,39 +19,45 @@
 - 중복 userId 확인 : 
 ```
 Request : { "userId" : "guswns1659"}
-Response : { "userId" : "guswns1659", "vaildation" : "true"}
+Response : { "userId" : "guswns1659", "validation" : "true"}
 ```
 
 - 중복 email 확인 : 
 ```
-Request : { "email" : "guswns1659@naver.com"}
-Response : { "email" : "guswns1659@naver.com", "vaildation" : "true"}
+Request : { "email" : "zmdk1127@naver.com"}
+Response : { "email" : "zmdk1127@naver.com", "validation" : "true"}
 ```
 
 - Phone number : 
 ```
 Request : { "phoneNumber" : "01012341234" }
-Response : { "phoneNumber" : "01012341234", "vaildation" : "true" } 
+Response : { "phoneNumber" : "01012341234", "validation" : "true" } 
 ```
 
-- **(추후논의)로그인** : 
+- 로그인 : 
 ```
 Request : { "userId" : "guswns1659", "password" : "1234" }
-Response : 로그인 성공 시 main.html / 로그인 실패 시 { "userId" : "guswns1659", "vaildation" : "false" }
+Response : 
+- 로그인 성공 시 : { "userId" : "guswns1659", "validation" : "true" }  
+- 로그인 실패 시 : { "userId" : "guswns1659", "validation" : "false" }
 ```
 
-- **(추후논의)회원가입** : 
+- 회원가입 : 
 
 ```
 Request : 
 { "userId" : "guswns1659",
   "password" : "1234",
-  "Gender" : "0"
-  "BirthDate" : "1970-09-10"
-   ....., 
+  "name" : "jack",
+  "gender" : "0"
+  "birthDate" : "1970-09-10"
+  "email" : "zmdk1127@naver.com"
+  "phoneNumber" : "01012341234",
   "favorite" : ['관심사1', '관심사2', '관심사3']}
 
-Response : main.html
+Response : 
+- 로그인 성공 시 : { "userId" : "guswns1659", "validation" : "true" }  
+- 로그인 실패 시 : { "userId" : "guswns1659", "validation" : "false" }
 ```
 
 ### URL 
