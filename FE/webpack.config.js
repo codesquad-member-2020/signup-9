@@ -4,7 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   mode: "development",
-  entry: { join: "./js/join/join.js" },
+  entry: { 'join': "./js/join/join.js", 'login': "./js/login/login.js" },
   output: {
     path: path.resolve(__dirname, "public"),
     filename: "[name]_bundle.js"
@@ -46,8 +46,14 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './html/join.html'
-
+      template: './html/join.html',
+      chunks: ['join'],
+      filename: 'join.html'
+    }),
+    new HtmlWebpackPlugin({
+      template: './html/login.html',
+      chunks: ['login'],
+      filename: 'login.html'
     }),
     new MiniCssExtractPlugin({
       filename: 'style.css'
