@@ -9,7 +9,18 @@ const checkUserId = (userId) => {
 }
 
 const checkPassword = (password) => {
-    return;
+    const pswdLengthCheck =  /.{8,16}$/;
+    const pswdUpperCheck = /^(?=.*[A-Z])/;
+    const pswdNumberCheck = /^(?=.*[0-9])/;
+    const pswdSpecialCheck = /^(?=.*[!@#$%^*+=-])/;
+
+    if(password==="") return "필수 정보입니다.";
+    if(!pswdLengthCheck.test(password)) return "8자 이상 16자 이하로 입력해주세요.";
+    if(!pswdUpperCheck.test(password)) return "영문 대문자를 최소 1자 이상 포함해주세요.";
+    if(!pswdNumberCheck.test(password)) return "숫자를 최소 1자 이상 포함해주세요.";
+    if(!pswdSpecialCheck.test(password)) return "특수문자를 최소 1자 이상 포함해주세요.";
+
+    return "안전한 비밀번호입니다."
 }
 
 const checkPasswordReconfirm = (password, reconfirmPassword) => {

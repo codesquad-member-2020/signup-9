@@ -26,8 +26,13 @@ const userIdHandler = (event, userId) => {
 }
 
 const passwordHandler = (event, password) => {
-    console.log("passwordHandler");
     const result = validationCheck.checkPassword(password);
+    const pswd1Msg = document.getElementById("pswd1Msg");
+
+    pswd1Msg.innerHTML = result;
+
+    (result === "안전한 비밀번호입니다.") ? changeClass(pswd1Msg, "ok_next_box") : changeClass(pswd1Msg, "error_next_box");
+
 }
 
 const passwordReconfirmHandler = (event, passwords) => {
