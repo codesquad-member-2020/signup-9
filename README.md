@@ -7,6 +7,8 @@
 - 지각 시 2000원.
 - 지각비 : 4000원
 
+### [분야별 기능 요구사항 목록 URL : https://docs.google.com/spreadsheets/d/1t73Jl4WdVuC1CdhwEmi7rrRBNPvr5EMW1ZvDXX09o7Q/edit#gid=0](https://docs.google.com/spreadsheets/d/1t73Jl4WdVuC1CdhwEmi7rrRBNPvr5EMW1ZvDXX09o7Q/edit#gid=0)
+
 ### 커밋 메세지 형식 
 - [FEAT]: 개선하거나 신기능 추가
 - [BUG]: 버그 수정
