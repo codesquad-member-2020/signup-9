@@ -7,18 +7,18 @@ public class User {
     @Id
     private Long id;
     private String userId;
-    private String name;
     private String password;
-    private String birthDate;
+    private String name;
     private Integer gender;
+    private String birthDate;
     private String email;
     private String phoneNumber;
     private String favoriteOne;
     private String favoriteTwo;
     private String favoriteThree;
 
-    public User(String userId, String name, String password,
-                String birthDate, Integer gender, String email,
+    public User(String userId, String password, String name,
+                Integer gender, String birthDate, String email,
                 String phoneNumber, String favoriteOne, String favoriteTwo,
                 String favoriteThree) {
         this.userId = userId;
