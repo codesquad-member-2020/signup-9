@@ -36,8 +36,9 @@ const passwordHandler = (event, password) => {
 }
 
 const passwordReconfirmHandler = (event, passwords) => {
-    console.log("passwordReconfirmHandler");
     const result = validationCheck.checkPasswordReconfirm(passwords.PASSWORD, passwords.PASSWORD_RECONFIRM);
+    pswd2Msg.innerHTML = result;
+    (result === "비밀번호가 일치합니다.") ? changeClass(pswd2Msg, "ok_next_box") : changeClass(pswd2Msg, "error_next_box");  
 }
 
 const nameHandler = (event, name) => {

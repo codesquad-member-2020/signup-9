@@ -24,7 +24,9 @@ const checkPassword = (password) => {
 }
 
 const checkPasswordReconfirm = (password, reconfirmPassword) => {
-    return;
+    if(reconfirmPassword==="") return "필수 정보입니다.";
+    if(password===reconfirmPassword) return "비밀번호가 일치합니다.";
+    return "비밀번호가 일치하지 않습니다.";
 }
 
 const checkName = (name) => {
