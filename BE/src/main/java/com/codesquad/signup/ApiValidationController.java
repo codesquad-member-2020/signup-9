@@ -7,12 +7,11 @@ import org.json.simple.parser.ParseException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.HashMap;
-import java.util.Map;
 
 @RestController
 public class ApiValidationController {
@@ -28,21 +27,21 @@ public class ApiValidationController {
     private UserRepository userRepository;
 
     @PostMapping("user-id-validation")
-    public JSONObject checkValidationOfUserId(@RequestBody String requestBodyEntity) throws ParseException {
+    public ResponseEntity<Void> checkValidationOfUserId(@RequestBody String requestBodyEntity) throws ParseException {
         return isValid(requestBodyEntity, USER_ID);
     }
 
     @PostMapping("email-validation")
-    public JSONObject checkValidationOfEmail(@RequestBody String requestBodyEntity) throws ParseException {
+    public ResponseEntity<Void> checkValidationOfEmail(@RequestBody String requestBodyEntity) throws ParseException {
         return isValid(requestBodyEntity, EMAIL);
     }
 
     @PostMapping("phone-number-validation")
-    public JSONObject checkValidationOfPhoneNumber(@RequestBody String requestBodyEntity) throws ParseException {
+    public ResponseEntity<Void> checkValidationOfPhoneNumber(@RequestBody String requestBodyEntity) throws ParseException {
         return isValid(requestBodyEntity, PHONE_NUMBER);
     }
 
-    private JSONObject isValid(String requestBodyEntity, String key) throws ParseException {
+    private ResponseEntity<Void> isValid(String requestBodyEntity, String key) throws ParseException {
         JSONObject jsonObject = (JSONObject) new JSONParser().parse(requestBodyEntity);
         String parsedKey = (String) jsonObject.get(key);
         String validation;
@@ -51,15 +50,15 @@ public class ApiValidationController {
         else validation = userRepository.findByPhoneNumber(parsedKey).orElse(TRUE);
 
         if (validation.equals(TRUE)) {
-            return result(key, TRUE, parsedKey);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
-        return result(key, FALSE, parsedKey);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    private JSONObject result(String column, String validation, String value) {
-        Map<String, String> map = new HashMap<>();
-        map.put(column, value);
-        map.put("validation", validation);
-        return new JSONObject(map);
-    }
+//    private JSONObject result(String column, String validation, String value) {
+//        Map<String, String> map = new HashMap<>();
+//        map.put(column, value);
+//        map.put("validation", validation);
+//        return new JSONObject(map);
+//    }
 }
