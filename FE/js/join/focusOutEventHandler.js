@@ -13,8 +13,6 @@ const userIdHandler = (event, userId) => {
   
     (result === "사용 가능한 아이디입니다.") ? changeClass(idMsg, "ok_next_box") : changeClass(idMsg, "error_next_box");
 
-    //document.getElementById("idMsg").innerHTML= result;
-
     // server 로 유효성 검사 요청
     // const data = {userId: "test"}
 
@@ -37,13 +35,17 @@ const passwordHandler = (event, password) => {
 
 const passwordReconfirmHandler = (event, passwords) => {
     const result = validationCheck.checkPasswordReconfirm(passwords.PASSWORD, passwords.PASSWORD_RECONFIRM);
+    const pswd2Msg = document.getElementById("pswd2Msg");
+
     pswd2Msg.innerHTML = result;
     (result === "비밀번호가 일치합니다.") ? changeClass(pswd2Msg, "ok_next_box") : changeClass(pswd2Msg, "error_next_box");  
 }
 
 const nameHandler = (event, name) => {
-    console.log("nameHandler");
     const result = validationCheck.checkName(name);
+    const nameMsg = document.getElementById("nameMsg");
+
+    nameMsg.innerHTML = result;
 }
 
 const birthdayHandler = (event, birthDay) => {
