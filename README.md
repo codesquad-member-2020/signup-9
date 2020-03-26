@@ -19,19 +19,19 @@
 - 중복 userId 확인 : 
 ```
 Request : { "userId" : "guswns1659"}
-Response : { "userId" : "guswns1659", "validation" : "true"}
+Response : { "userId" : "guswns1659", "validation" : "false"}
 ```
 
 - 중복 email 확인 : 
 ```
 Request : { "email" : "zmdk1127@naver.com"}
-Response : { "email" : "zmdk1127@naver.com", "validation" : "true"}
+Response : { "email" : "zmdk1127@naver.com", "validation" : "false"}
 ```
 
-- Phone number : 
+- 중복 Phone number : 
 ```
 Request : { "phoneNumber" : "01012341234" }
-Response : { "phoneNumber" : "01012341234", "validation" : "true" } 
+Response : { "phoneNumber" : "01012341234", "validation" : "false" } 
 ```
 
 - 로그인 : 
@@ -61,8 +61,8 @@ Response :
 ```
 
 ### URL 
-- 중복 ID 확인 : POST https://hyunjun.herokuapp.com/user-id-vaildation
-- 중복 EMAIL 확인 : POST https://hyunjun.herokuapp.com/email-vaildation
-- 중복 핸드폰 번호 확인 : POST https://hyunjun.herokuapp.com/phone-number-vaildation
+- 중복 ID 확인 : POST https://hyunjun.herokuapp.com/user-id-validation
+- 중복 EMAIL 확인 : POST https://hyunjun.herokuapp.com/email-validation
+- 중복 핸드폰 번호 확인 : POST https://hyunjun.herokuapp.com/phone-number-validation
 - 가입하기 : POST 37b0ab9f-726b-4389-9041-add27b33e400.mock.pstmn.io/user-registration
 - 로그인 : POST 37b0ab9f-726b-4389-9041-add27b33e400.mock.pstmn.io/login
