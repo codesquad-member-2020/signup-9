@@ -11,12 +11,13 @@ const getElementValue = (elementId) => {
             };
             break;
         }
+        case "closeBtn": 
         case "favorite": {
             result = document.getElementById(elementId).parentElement.querySelectorAll(".tag");
             break;
         }
         case "agreement": {
-            result = document.getElementById(elementId).parentElement.querySelectorAll(".tag");
+            result = document.getElementById(elementId).checked
             break;
         }
         case "pswd2": {

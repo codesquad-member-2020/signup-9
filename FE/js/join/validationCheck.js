@@ -1,19 +1,37 @@
 import WARNING_MESSAGE from "./warningMessage.js"
 
 const checkUserId = (userId) => {
-    return;
+    const idCheck =  /^[a-z0-9-_]{5,20}$/;
+    if(userId==="") return "필수 정보입니다.";
+    if (!idCheck.test(userId)) return "5~20자의 영문 소문자, 숫자와 특수기호(_),(-)만 사용 가능합니다.";
+
+    return "사용 가능한 아이디입니다.";
 }
 
 const checkPassword = (password) => {
-    return;
+    const pswdLengthCheck =  /.{8,16}$/;
+    const pswdUpperCheck = /^(?=.*[A-Z])/;
+    const pswdNumberCheck = /^(?=.*[0-9])/;
+    const pswdSpecialCheck = /^(?=.*[!@#$%^*+=-])/;
+
+    if(password==="") return "필수 정보입니다.";
+    if(!pswdLengthCheck.test(password)) return "8자 이상 16자 이하로 입력해주세요.";
+    if(!pswdUpperCheck.test(password)) return "영문 대문자를 최소 1자 이상 포함해주세요.";
+    if(!pswdNumberCheck.test(password)) return "숫자를 최소 1자 이상 포함해주세요.";
+    if(!pswdSpecialCheck.test(password)) return "특수문자를 최소 1자 이상 포함해주세요.";
+
+    return "안전한 비밀번호입니다."
 }
 
 const checkPasswordReconfirm = (password, reconfirmPassword) => {
-    return;
+    if(reconfirmPassword==="") return "필수 정보입니다.";
+    if(password===reconfirmPassword) return "비밀번호가 일치합니다.";
+    return "비밀번호가 일치하지 않습니다.";
 }
 
 const checkName = (name) => {
-    return;
+    if(name==="") return "필수 정보입니다.";
+    return "";
 }
 
 const checkBirthday = (year, month, day) => {
@@ -76,7 +94,16 @@ const checkPhone = (phone) => {
 }
 
 const checkFavorite = (favorites) => {
-    return;
+    let resultValue = false;
+    let messageValue = "";
+    const miminumCount = 3;
+    
+    if (favorites.length < miminumCount) {
+        resultValue = false;
+        messageValue = WARNING_MESSAGE.FAVORITE.LACK_OF_COUNT;
+    }
+
+    return {validation: resultValue, message: messageValue};
 }
 
 const checkAgreement = (checked) => {

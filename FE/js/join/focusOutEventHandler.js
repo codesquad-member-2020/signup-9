@@ -6,10 +6,12 @@ import WARNING_MESSAGE from "./warningMessage.js";
 import {KEYVALUE} from "../common/jsonKeyValue.js";
 
 const userIdHandler = (event, userId) => {
-    console.log("userIdHandler");
     const result = validationCheck.checkUserId(userId);
-
-    //document.getElementById("idMsg").innerHTML= result;
+    const idMsg = document.getElementById("idMsg");
+    
+    idMsg.innerHTML = result;
+  
+    (result === "사용 가능한 아이디입니다.") ? changeClass(idMsg, "ok_next_box") : changeClass(idMsg, "error_next_box");
 
     // server 로 유효성 검사 요청
     // const data = {userId: "test"}
@@ -22,18 +24,28 @@ const userIdHandler = (event, userId) => {
 }
 
 const passwordHandler = (event, password) => {
-    console.log("passwordHandler");
     const result = validationCheck.checkPassword(password);
+    const pswd1Msg = document.getElementById("pswd1Msg");
+
+    pswd1Msg.innerHTML = result;
+
+    (result === "안전한 비밀번호입니다.") ? changeClass(pswd1Msg, "ok_next_box") : changeClass(pswd1Msg, "error_next_box");
+
 }
 
 const passwordReconfirmHandler = (event, passwords) => {
-    console.log("passwordReconfirmHandler");
     const result = validationCheck.checkPasswordReconfirm(passwords.PASSWORD, passwords.PASSWORD_RECONFIRM);
+    const pswd2Msg = document.getElementById("pswd2Msg");
+
+    pswd2Msg.innerHTML = result;
+    (result === "비밀번호가 일치합니다.") ? changeClass(pswd2Msg, "ok_next_box") : changeClass(pswd2Msg, "error_next_box");  
 }
 
 const nameHandler = (event, name) => {
-    console.log("nameHandler");
     const result = validationCheck.checkName(name);
+    const nameMsg = document.getElementById("nameMsg");
+
+    nameMsg.innerHTML = result;
 }
 
 const birthdayHandler = (event, birthDay) => {
@@ -96,7 +108,13 @@ const phoneHandler = (event, phone) => {
 
 const favoriteHandler = (event, favorites) => {
     console.log("favoriteHandler");
+
+    event.target.value = '';
     const result = validationCheck.checkFavorite(favorites);
+
+    handleResult(event, result);
+    
+    console.log(favorites.length);
 }
 
 const handleResult = (event, result) => {
@@ -121,5 +139,11 @@ const focusoutEventHandler = Object.freeze({
     "phoneNo": phoneHandler,
     "favorite": favoriteHandler,
 });
+
+function changeClass(element, newClassName) {
+    const beforeClassName = element.className;
+    element.classList.remove(beforeClassName);
+    element.classList.add(newClassName);
+  }
 
 export {focusoutEventHandler};
