@@ -1,24 +1,36 @@
 const getElementValue = (elementId) => {
-    if (elementId === "yy" || 
-        elementId === "mm" ||
-        elementId === "dd") {
-            return {YEAR: document.getElementById("yy").value,
-                    MONTH: document.getElementById("mm").value,
-                    DAY: document.getElementById("dd").value};
+    let result = null;
+
+    switch(elementId) {
+        case "yy":
+        case "mm":
+        case "dd": {
+            result = {YEAR: document.getElementById("yy").value,
+                      MONTH: document.getElementById("mm").value,
+                      DAY: document.getElementById("dd").value
+            };
+            break;
+        }
+        case "favorite": {
+            result = document.getElementById(elementId).parentElement.querySelectorAll(".tag");
+            break;
+        }
+        case "agreement": {
+            result = document.getElementById(elementId).parentElement.querySelectorAll(".tag");
+            break;
+        }
+        case "pswd2": {
+            result = {PASSWORD: document.getElementById("pswd1").value, 
+                      PASSWORD_RECONFIRM: document.getElementById(elementId).value};
+            break;
+        }
+        default: {
+            result = document.getElementById(elementId).value;
+            break;
+        }
     }
-    else if (elementId === "favorite") {
-        return document.getElementById(elementId).parentElement.querySelectorAll(".tag");
-    }
-    else if (elementId === "agreement") {
-        return document.getElementById(elementId).checked;
-    }
-    else if (elementId === "pswd2") {
-        return {PASSWORD: document.getElementById("pswd1").value, 
-                PASSWORD_RECONFIRM: document.getElementById(elementId).value};
-    }
-    else {
-        return document.getElementById(elementId).value;
-    }
+
+    return result;
 }
 
 export {getElementValue};
