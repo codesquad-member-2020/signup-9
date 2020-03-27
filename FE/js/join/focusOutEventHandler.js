@@ -6,21 +6,29 @@ import WARNING_MESSAGE from "./warningMessage.js";
 import {KEYVALUE} from "../common/jsonKeyValue.js";
 
 const userIdHandler = (event, userId) => {
-    const result = validationCheck.checkUserId(userId);
+    joinValueStatus.callChangeValid(event.target.id, false)
+
+    let result = validationCheck.checkUserId(userId);
     const idMsg = document.getElementById("idMsg");
-    
-    idMsg.innerHTML = result;
+
+    idMsg.innerHTML = result.message;
+
+    if (result.validation === false) {
+        return;
+    }
+
+    const data = {"userId" : userId}
+
+    fetchRequest(URL.SERVICE_URL.ID, data)
+    .then(response => response.json())
+    .then(response => {
+        if(response.validation === false)  result.message = "이미 사용중인 아이디입니다.";
+        
+        idMsg.innerHTML = result.message;
   
-    (result === "사용 가능한 아이디입니다.") ? changeClass(idMsg, "ok_next_box") : changeClass(idMsg, "error_next_box");
-
-    // server 로 유효성 검사 요청
-    // const data = {userId: "test"}
-
-    // fetchRequest("http://37b0ab9f-726b-4389-9041-add27b33e400.mock.pstmn.io/phone-number-vaildation", data)
-    // .then(response => response.json())
-    // .then(suggestionData => {
-    //     console.log(suggestionData);
-    // });
+        (result.message !== "이미 사용중인 아이디입니다.") ? changeClass(idMsg, "ok_next_box") : changeClass(idMsg, "error_next_box");
+        (result.message !== "이미 사용중인 아이디입니다.") ? joinValueStatus.callChangeValid(event.target.id, true) : joinValueStatus.callChangeValid(event.target.id, false);
+    });
 }
 
 const passwordHandler = (event, password) => {
@@ -30,7 +38,7 @@ const passwordHandler = (event, password) => {
     pswd1Msg.innerHTML = result;
 
     (result === "안전한 비밀번호입니다.") ? changeClass(pswd1Msg, "ok_next_box") : changeClass(pswd1Msg, "error_next_box");
-
+    (result === "안전한 비밀번호입니다.") ? joinValueStatus.callChangeValid(event.target.id, true) : joinValueStatus.callChangeValid(event.target.id, false);
 }
 
 const passwordReconfirmHandler = (event, passwords) => {
@@ -39,6 +47,7 @@ const passwordReconfirmHandler = (event, passwords) => {
 
     pswd2Msg.innerHTML = result;
     (result === "비밀번호가 일치합니다.") ? changeClass(pswd2Msg, "ok_next_box") : changeClass(pswd2Msg, "error_next_box");  
+    (result === "비밀번호가 일치합니다.") ? joinValueStatus.callChangeValid(event.target.id, true) : joinValueStatus.callChangeValid(event.target.id, false);
 }
 
 const nameHandler = (event, name) => {
@@ -46,11 +55,15 @@ const nameHandler = (event, name) => {
     const nameMsg = document.getElementById("nameMsg");
 
     nameMsg.innerHTML = result;
+    (result === "") ? joinValueStatus.callChangeValid(event.target.id, true) : joinValueStatus.callChangeValid(event.target.id, false);
 }
 
 const birthdayHandler = (event, birthDay) => {
-    console.log("birthdayHandler");
     const result = validationCheck.checkBirthday(birthDay.YEAR, birthDay.MONTH, birthDay.DAY);
+    const birthdayMsg = document.getElementById("birthdayMsg");
+
+    birthdayMsg.innerHTML = result; 
+    (result === "") ? joinValueStatus.callChangeValid(event.target.id, true) : joinValueStatus.callChangeValid(event.target.id, false);
 }
 
 const genderHandler = (event, gender) => {

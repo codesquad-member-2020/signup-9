@@ -7,9 +7,9 @@ const MOCKUP_URL = Object.freeze({
 });
 
 const SERVICE_URL = Object.freeze({
-    ID: "https://cors-anywhere.herokuapp.com/hyunjun.herokuapp.com/user-id-vaildation",
-    EMAIL: "https://cors-anywhere.herokuapp.com/hyunjun.herokuapp.com/email-vaildation",
-    PHONE: "https://cors-anywhere.herokuapp.com/hyunjun.herokuapp.com/phone-number-vaildation",
+    ID: "https://hyunjun.herokuapp.com/user-id-validation",
+    EMAIL: "https://hyunjun.herokuapp.com/email-validation",
+    PHONE: "https://hyunjun.herokuapp.com/phone-number-validation",
     JOIN: "",
     LOGIN: ""
 });

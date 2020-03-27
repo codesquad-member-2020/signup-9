@@ -1,11 +1,21 @@
 import WARNING_MESSAGE from "./warningMessage.js"
 
 const checkUserId = (userId) => {
-    const idCheck =  /^[a-z0-9-_]{5,20}$/;
-    if(userId==="") return "필수 정보입니다.";
-    if (!idCheck.test(userId)) return "5~20자의 영문 소문자, 숫자와 특수기호(_),(-)만 사용 가능합니다.";
+    let resultValue = true;
+    let messageValue = "";
 
-    return "사용 가능한 아이디입니다.";
+    const idCheck =  /^[a-z0-9-_]{5,20}$/;
+
+    if(userId==="") {
+        resultValue = false;
+        messageValue = "필수 정보입니다.";
+    }
+    else if (!idCheck.test(userId)) {
+        resultValue = false;
+        messageValue = "5~20자의 영문 소문자, 숫자와 특수기호(_),(-)만 사용 가능합니다.";
+    }
+
+    return {validation: resultValue, message: messageValue};
 }
 
 const checkPassword = (password) => {
@@ -35,7 +45,34 @@ const checkName = (name) => {
 }
 
 const checkBirthday = (year, month, day) => {
-    return;
+    function calcAge (year) {
+        let today = new Date();   
+        let thisYear = today.getFullYear();
+        let age = thisYear - year +1;   
+        return age;
+    }
+    function leapYearCheck (year){
+        if(year==="") return;
+        if(year%4 == 0 && year%100 !=0 || year%400 == 0) return true;
+        return false;
+    }
+
+    function setEndDay (year,month){
+        let endDay ;
+        (month==2 && leapYearCheck(year)==true) ? endDay = 29 : endDay =28;
+        if(month==2) return endDay;
+        (month == 4 || month ==6||month ==9||month ==11) ? endDay = 30 : endDay = 31;
+        return endDay;
+    }
+
+    if(year.length !== 4) return "태어난 년도 4자리를 정확하게 입력하세요.";
+    if(calcAge(year)<15) return "만 14세 미만의 어린이는 보호자 동의가 필요합니다.";
+    if(99<calcAge(year)) return "정말이세요?";
+    if(month === "") return "태어난 월을 선택해주세요.";
+    if(day === "") return "태어난 날짜를 입력해주세요.";
+    if(setEndDay(year,month)<day) return "생년월일을 다시 확인해주세요.";
+
+    return "";
 }
 
 const checkGender = (gender) => {
@@ -94,7 +131,7 @@ const checkPhone = (phone) => {
 }
 
 const checkFavorite = (favorites) => {
-    let resultValue = false;
+    let resultValue = true;
     let messageValue = "";
     const miminumCount = 3;
     
