@@ -10,7 +10,7 @@ const favoriteHandler = (event, favorites) => {
 
         const appendContent = `
         <div class="tag">
-            <span>${slicedString}</span>
+            <span class="favoriteContent">${slicedString}</span>
             <i class="material-icons" id="closeBtn">close</i>
         </div>
         `;
