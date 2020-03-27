@@ -121,7 +121,7 @@ const checkPhone = (phone) => {
 }
 
 const checkFavorite = (favorites) => {
-    let resultValue = false;
+    let resultValue = true;
     let messageValue = "";
     const miminumCount = 3;
     

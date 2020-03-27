@@ -13,6 +13,10 @@ const ELEMENT_ID = Object.freeze({
     AGREE: "agreement"
 });
 
+const ELEMENT_CLASS = Object.freeze({
+    FAVORITE_CONTENT: ".favoriteContent",
+});
+
 const ERR_MSG_ELEMENT_ID = Object.freeze({
     "id": "idMsg",
     "pswd1": "pswd1Msg",
@@ -28,4 +32,4 @@ const ERR_MSG_ELEMENT_ID = Object.freeze({
     "agree": "agreementMsg"
 });
 
-export {ELEMENT_ID, ERR_MSG_ELEMENT_ID};
+export {ELEMENT_ID, ELEMENT_CLASS, ERR_MSG_ELEMENT_ID};
