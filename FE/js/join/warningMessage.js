@@ -11,7 +11,7 @@ const EMAIL = Object.freeze({
 const PHONE = Object.freeze({
     NOT_ENTERED: "휴대폰 번호를 입력해주세요.",
     WRONG_EXPRESSION: "형식에 맞지 않은 번호입니다.",
-    ALREADY_JOINED: "중복된 이메일 주소입니다.",
+    ALREADY_JOINED: "중복된 휴대전화 번호입니다.",
 });
 
 const FAVORITE = Object.freeze({
