@@ -18,16 +18,17 @@ public class HomeController {
     private UserRepository userRepository;
 
     @GetMapping("")
-    public ModelAndView index(ModelAndView modelAndView) {
+    public ModelAndView index() {
         return new ModelAndView("/main/index.html");
     }
+
     @GetMapping("/join")
-    public ModelAndView hello(ModelAndView modelAndView) {
+    public ModelAndView hello() {
         return new ModelAndView("/join/index.html");
     }
 
     @GetMapping("/loginForm")
-    public ModelAndView login(ModelAndView modelAndView) {
+    public ModelAndView login() {
         return new ModelAndView("/login/index.html");
     }
 }

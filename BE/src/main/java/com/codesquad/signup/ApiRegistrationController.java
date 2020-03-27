@@ -56,11 +56,10 @@ public class ApiRegistrationController {
 
     @PostMapping("login")
     public ModelAndView login(@RequestBody String requestUser,
-                              String userId, String password,
                               HttpSession httpSession) throws ParseException {
-//        JSONObject jsonObject = (JSONObject) new JSONParser().parse(requestUser);
-//        String userId = (String) jsonObject.get("userId");
-//        String password = (String) jsonObject.get("password");
+        JSONObject jsonObject = (JSONObject) new JSONParser().parse(requestUser);
+        String userId = (String) jsonObject.get("userId");
+        String password = (String) jsonObject.get("password");
         logger.info("userId : {} , password: {}", userId, password);
         try {
             String savedUserId = userRepository.findByUserId(userId).orElseThrow(() ->
