@@ -6,8 +6,6 @@ import WARNING_MESSAGE from "./warningMessage.js";
 import {KEYVALUE} from "../common/jsonKeyValue.js";
 
 const userIdHandler = (event, userId) => {
-    joinValueStatus.callChangeValid(event.target.id, false)
-
     let result = validationCheck.checkUserId(userId);
     const idMsg = document.getElementById("idMsg");
 
@@ -20,15 +18,19 @@ const userIdHandler = (event, userId) => {
     const data = {"userId" : userId}
 
     fetchRequest(URL.SERVICE_URL.ID, data)
-    .then(response => response.json())
     .then(response => {
-        if(response.validation === false)  result.message = "이미 사용중인 아이디입니다.";
-        
+        let responseResult = false;
+
+        if (response.status === 204)
+            responseResult = true;
+
+        if (responseResult === false) result.message = "이미 사용중인 아이디입니다.";
+
         idMsg.innerHTML = result.message;
-  
+
         (result.message !== "이미 사용중인 아이디입니다.") ? changeClass(idMsg, "ok_next_box") : changeClass(idMsg, "error_next_box");
         (result.message !== "이미 사용중인 아이디입니다.") ? joinValueStatus.callChangeValid(event.target.id, true) : joinValueStatus.callChangeValid(event.target.id, false);
-    });
+    })
 }
 
 const passwordHandler = (event, password) => {
@@ -83,17 +85,21 @@ const emailHandler = (event, email) => {
     const data = {[KEYVALUE.EMAIL]: email};
 
     fetchRequest(URL.SERVICE_URL.EMAIL, data)
-        .then(response => response.json())
-        .then(response => {
-            console.log(response);
-            result.validation = response.validation;
+    .then(response => {
+        let responseResult = false;
 
-            if (response.validation === false) {
-                result.message = WARNING_MESSAGE.EMAIL.ALREADY_JOINED;
-            }
+        if (response.status === 204)
+            responseResult = true;
 
-            handleResult(event, result);
-        });
+
+        result.validation = responseResult;
+
+        if (response.validation === false) {
+            result.message = WARNING_MESSAGE.EMAIL.ALREADY_JOINED;
+        }
+
+        handleResult(event, result);
+    })
 }
 
 const phoneHandler = (event, phone) => {
@@ -107,27 +113,27 @@ const phoneHandler = (event, phone) => {
     const data = {[KEYVALUE.PHONE]: phone};
 
     fetchRequest(URL.SERVICE_URL.PHONE, data)
-        .then(response => response.json())
-        .then(response => {
-            result.validation = response.validation;
+    .then(response => {
+        let responseResult = false;
 
-            if (response.validation === false) {
-                result.message = WARNING_MESSAGE.PHONE.ALREADY_JOINED;
-            }
+        if (response.status === 204)
+            responseResult = true;
 
-            handleResult(event, result);
-        });
+        result.validation = responseResult;
+
+        if (response.validation === false) {
+            result.message = WARNING_MESSAGE.PHONE.ALREADY_JOINED;
+        }
+
+        handleResult(event, result);
+    })
 }
 
 const favoriteHandler = (event, favorites) => {
-    console.log("favoriteHandler");
-
     event.target.value = '';
     const result = validationCheck.checkFavorite(favorites);
 
     handleResult(event, result);
-    
-    console.log(favorites.length);
 }
 
 const handleResult = (event, result) => {

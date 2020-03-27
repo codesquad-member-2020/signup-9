@@ -56,7 +56,6 @@ const joinHandler = (event, value) => {
 }
 
 const agreementHandler = (event, checked) => {
-    console.log("agreementHandler");
     const result = validationCheck.checkAgreement(checked);
 
     joinValueStatus.callChangeValid(event.target.id, checked);
