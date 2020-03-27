@@ -37,11 +37,13 @@ const joinHandler = (event, value) => {
         favoriteValue.push(element.innerHTML)
     });
 
+    const cvtGender = (genderValue === 'M') ? "0" : "1";
+
     const data = {
         [KEYVALUE.ID]: idValue,
         [KEYVALUE.PASSWORD]: passWordValue,
         [KEYVALUE.NAME]: nameValue,
-        [KEYVALUE.GENDER]: genderValue,
+        [KEYVALUE.GENDER]: cvtGender,
         [KEYVALUE.BIRTHDAY]: yearValue + "-" + monthValue + '-' + dayValue,
         [KEYVALUE.EMAIL]: emailValue,
         [KEYVALUE.PHONE]: phoneValue,
@@ -53,12 +55,6 @@ const joinHandler = (event, value) => {
         .then(response => {
             console.log(response);
         });
-}
-
-const agreementHandler = (event, checked) => {
-    const result = validationCheck.checkAgreement(checked);
-
-    joinValueStatus.callChangeValid(event.target.id, checked);
 }
 
 const closeHandler = (event, favorites) => {
@@ -88,7 +84,6 @@ const closeHandler = (event, favorites) => {
 const clickEventHandler = Object.freeze({
     "btnReset": resetHandler,
     "btnJoin": joinHandler,
-    "agreement": agreementHandler,
     "closeBtn": closeHandler
 });
 
@@ -134,6 +129,8 @@ const checkValueAvailable = () => {
     else if (joinValueStatus.agreementValid() === false) {
         return {resultValue: false, messageValue: WARNING_MESSAGE.JOIN.AGREEMENT};
     }
+
+    return {resultValue: true, messageValue: ""};
 }
 
 const resetStatus = () => {

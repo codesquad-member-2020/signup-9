@@ -23,13 +23,18 @@ const favoriteHandler = (event, favorites) => {
     }
 }
 
+const agreementHandler = (event, checked) => {
+    joinValueStatus.callChangeValid(event.target.id, checked);
+}
+
 const commonInputHander = (event) => {
     joinValueStatus.callChangeValid(event.target.id, false);
 }
 
 const inputEventHandler = Object.freeze({
     "favorite": favoriteHandler,
-    "commonInputHandler": commonInputHander
+    "commonInputHandler": commonInputHander,
+    "agreement": agreementHandler
 });
 
 export {inputEventHandler};
