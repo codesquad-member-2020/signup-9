@@ -54,10 +54,6 @@ public class ApiValidationController {
         }
         return new ResponseEntity<>(HttpStatus.OK);
     }
-
-
-    
-
 //    private JSONObject result(String column, String validation, String value) {
 //        Map<String, String> map = new HashMap<>();
 //        map.put(column, value);
