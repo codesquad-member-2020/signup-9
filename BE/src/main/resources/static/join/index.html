@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="../join/style.css" rel="stylesheet"></head>
+<body>
+    <div id="header" class="join_membership">
+        <h1>회원가입</h1>
+    </div>
+    <form id="join_form">
+        <div id="container" role="main">
+            <div id="content">
+                <div class="join_row">
+                    <h3 class="join_title"><label for="id">아이디</label></h3>
+                    <span class="ps_box int_id">
+                        <input type="text" id="id" name="id" class="int" title="ID" maxlength="20">
+                    </span>
+                    <span class="error_next_box" id="idMsg" aria-live="assertive"></span>
+                </div>
+                <div class="join_row">
+                    <h3 class="join_title"><label for="pswd1">비밀번호</label></h3>
+                    <span class="ps_box int_pass" id="pswd1Img">
+                        <input type="password" id="pswd1" name="pswd1" class="int" title="비밀번호 입력" aria-describedby="pswd1Msg" maxlength="16">
+                    </span>
+                    <span class="error_next_box" id="pswd1Msg" aria-live="assertive"></span>
+    
+                    <h3 class="join_title"><label for="pswd2">비밀번호 재확인</label></h3>
+                    <span class="ps_box int_pass_check" id="pswd2Img">
+                        <input type="password" id="pswd2" name="pswd2" class="int" title="비밀번호 재확인 입력" aria-describedby="pswd2Blind" maxlength="16">
+                    </span>
+                    <span class="error_next_box" id="pswd2Msg" aria-live="assertive"></span>
+                </div>
+
+                <div class="join_row">
+                    <h3 class="join_title"><label for="name">이름</label></h3>
+                    <span class="ps_box box_right_space">
+                        <input type="text" id="name" name="name" title="이름" class="int" maxlength="40">
+                    </span>
+                    <span class="error_next_box" id="nameMsg" aria-live="assertive"></span>
+                </div>
+    
+                <div class="join_row join_birthday">
+                    <h3 class="join_title"><label for="yy">생년월일</label></h3>
+                    <div class="bir_wrap">
+                        <div class="bir_yy">
+                            <span class="ps_box">
+                                <input type="text" id="yy" placeholder="년(4자)" aria-label="년(4자)" class="int" maxlength="4">
+                            </span>
+                        </div>
+                        <div class="bir_mm">
+                            <span class="ps_box">
+                                <select id="mm" class="sel" aria-label="월">
+                                    <option value="">월</option>
+                                    <option value="01">
+                                        1
+                                    </option>
+                                    <option value="02">
+                                        2
+                                    </option>
+                                    <option value="03">
+                                        3
+                                    </option>
+                                    <option value="04">
+                                        4
+                                    </option>
+                                    <option value="05">
+                                        5
+                                    </option>
+                                    <option value="06">
+                                        6
+                                    </option>
+                                    <option value="07">
+                                        7
+                                    </option>
+                                    <option value="08">
+                                        8
+                                    </option>
+                                    <option value="09">
+                                        9
+                                    </option>
+                                    <option value="10">
+                                        10
+                                    </option>
+                                    <option value="11">
+                                        11
+                                    </option>
+                                    <option value="12">
+                                        12
+                                    </option>
+                                </select>
+                            </span>
+                        </div>
+                        <div class=" bir_dd">
+                            <span class="ps_box">
+                                <input type="text" id="dd" placeholder="일" aria-label="일" class="int" maxlength="2">
+                            </span>
+                        </div>
+                    </div>
+                    <span class="error_next_box" id="birthdayMsg" aria-live="assertive"></span>
+                </div>
+    
+                <div class="join_row join_gender">
+                    <h3 class="join_title"><label for="gender">성별</label></h3>
+                    <div class="ps_box gender_code">
+                        <select id="gender" name="gender" class="sel" aria-label="성별">
+                            <option value="" selected>성별</option>
+                            <option value="M">남자</option>
+                            <option value="F">여자</option>
+                        </select>
+                    </div>
+                </div>
+                <span class="error_next_box" id="genderMsg" aria-live="assertive"></span>
+    
+                <div class="join_row join_email">
+                    <h3 class="join_title"><label for="email">이메일</label></h3>
+                    <span class="ps_box int_email box_right_space">
+                        <input type="text" id="email" name="email" class="int" maxlength="100">
+                    </span>
+                </div>
+                <span class="error_next_box" id="emailMsg" aria-live="assertive"></span>
+    
+                <div class="join_row join_mobile" id="mobDiv">
+                    <h3 class="join_title"><label for="phoneNo">휴대전화</label></h3>
+                    <span class="ps_box int_mobile">
+                        <input type="tel" id="phoneNo" name="phoneNo" placeholder="- 없이 입력해주세요. 예) 01012345678" aria-label="전화번호 입력"
+                            class="int" maxlength="16">
+                    </span>
+                </div>
+                <span class="error_next_box" id="phoneNoMsg" aria-live="assertive"></span>
+
+                <div class="join_row join_favorite" id="favoriteDiv">
+                    <h3 class="join_title"><label for="favorite">관심사</label></h3>
+                    <span class="ps_box_favorite int_favorite box_right_space">
+                        <input type="text" id="favorite" name="favorite" class="int" maxlength="100">
+                    </span>
+                </div>
+                <span class="error_next_box" id="favoriteMsg" aria-live="assertive"></span>
+
+                <h3 class="join_title"><label for="agreement">약관에 동의합니다. </label><input name="agreement" type="checkbox" value="" id="agreement"/></h3>
+                <span class="error_next_box" id="agreementMsg" aria-live="assertive"></span>
+
+                <form method="get" action="/">
+                    <div class="btn_area">
+                        <button type="button" id="btnReset" class="btn_type btn_primary">초기화</button>
+                        <button type="button" id="btnJoin" class="btn_type btn_primary">가입하기</button>
+                    </div>
+                </form>
+            </div>
+    </form>
+<script src="../join/join_bundle.js"></script></body>
+</html>

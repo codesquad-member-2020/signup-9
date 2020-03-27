@@ -14,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
 
@@ -54,11 +55,12 @@ public class ApiRegistrationController {
     }
 
     @PostMapping("login")
-    public ResponseEntity<Void> login(@RequestBody String requestUser,
-                                      HttpSession httpSession) throws ParseException {
-        JSONObject jsonObject = (JSONObject) new JSONParser().parse(requestUser);
-        String userId = (String) jsonObject.get("userId");
-        String password = (String) jsonObject.get("password");
+    public ModelAndView login(@RequestBody String requestUser,
+                              String userId, String password,
+                              HttpSession httpSession) throws ParseException {
+//        JSONObject jsonObject = (JSONObject) new JSONParser().parse(requestUser);
+//        String userId = (String) jsonObject.get("userId");
+//        String password = (String) jsonObject.get("password");
         logger.info("userId : {} , password: {}", userId, password);
         try {
             String savedUserId = userRepository.findByUserId(userId).orElseThrow(() ->
@@ -66,13 +68,16 @@ public class ApiRegistrationController {
             String savedPassword = userRepository.findPasswordByUserId(savedUserId).orElseThrow(() ->
                     new IllegalStateException("Wrong password"));
             if (!password.equals(savedPassword)) {
-                return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+//                return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+                return new ModelAndView("/login/index.html");
             }
 
             httpSession.setAttribute("sessionedUser", userId);
-            return new ResponseEntity<>(HttpStatus.OK);
+//            return new ResponseEntity<>(HttpStatus.OK);
+            return new ModelAndView("/main/index.html");
         } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+//            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+            return new ModelAndView("/login/index.html");
         }
     }
 

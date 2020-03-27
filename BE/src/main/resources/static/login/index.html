@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<link href="../login/style.css" rel="stylesheet"></head>
+
+<body>
+    <div class="container">
+        <h1 class="login_title">로그인</h1>
+
+        <form class="login_form" method="post" action="/login">
+            <div class="id_area">
+                <span class="id_input">
+                    <input type="text" id="login_id" class="id" name="userId" placeholder="아이디" maxlength="20">
+                </span>
+            </div>
+            <div class="pswd_area">
+                <span class="pswd_input">
+                    <input type="password" id="login_pswd" class="pswd" name="password" placeholder="비밀번호" maxlength="16">
+                </span>
+            </div>
+            <button type="submit" class="btn_login" value="로그인">로그인</button>
+        </form>
+
+    </div>
+<script src="../login/login_bundle.js"></script></body>
+
+</html>
