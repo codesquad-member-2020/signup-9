@@ -98,6 +98,17 @@ const clickEventHandler = Object.freeze({
 });
 
 const checkValueAvailable = () => {
+    console.log("userId", joinValueStatus.userIdValid());
+    console.log("password", joinValueStatus.passwordValid());
+    console.log("confirm", joinValueStatus.passwordReconfirmValid());
+    console.log("name", joinValueStatus.nameValid());
+    console.log("birthday", joinValueStatus.birthdayValid());
+    console.log("gender", joinValueStatus.genderValid());
+    console.log("email", joinValueStatus.emailValid());
+    console.log("phone", joinValueStatus.phoneValid());
+    console.log("favorite", joinValueStatus.favoriteValid());
+    console.log("aggree", joinValueStatus.agreementValid());
+
     if (joinValueStatus.userIdValid() === false) {
         return {resultValue: false, messageValue: WARNING_MESSAGE.JOIN.ID};
     }

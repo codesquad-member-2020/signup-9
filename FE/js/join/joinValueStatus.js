@@ -102,6 +102,7 @@ const joinValueStatus = (function()
 
     return { 
         callChangeValid: function(event, val) {
+            console.log(event, val)
             changeValid(event, val);
         },
         userIdValid: function() {

@@ -1,11 +1,21 @@
 import WARNING_MESSAGE from "./warningMessage.js"
 
 const checkUserId = (userId) => {
-    const idCheck =  /^[a-z0-9-_]{5,20}$/;
-    if(userId==="") return "필수 정보입니다.";
-    if (!idCheck.test(userId)) return "5~20자의 영문 소문자, 숫자와 특수기호(_),(-)만 사용 가능합니다.";
+    let resultValue = true;
+    let messageValue = "";
 
-    return "사용 가능한 아이디입니다.";
+    const idCheck =  /^[a-z0-9-_]{5,20}$/;
+
+    if(userId==="") {
+        resultValue = false;
+        messageValue = "필수 정보입니다.";
+    }
+    else if (!idCheck.test(userId)) {
+        resultValue = false;
+        messageValue = "5~20자의 영문 소문자, 숫자와 특수기호(_),(-)만 사용 가능합니다.";
+    }
+
+    return {validation: resultValue, message: messageValue};
 }
 
 const checkPassword = (password) => {
