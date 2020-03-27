@@ -66,5 +66,5 @@ Response :
 - 중복 ID 확인 : POST https://hyunjun.herokuapp.com/user-id-validation
 - 중복 EMAIL 확인 : POST https://hyunjun.herokuapp.com/email-validation
 - 중복 핸드폰 번호 확인 : POST https://hyunjun.herokuapp.com/phone-number-validation
-- 가입하기 : POST 37b0ab9f-726b-4389-9041-add27b33e400.mock.pstmn.io/user-registration
-- 로그인 : POST 37b0ab9f-726b-4389-9041-add27b33e400.mock.pstmn.io/login
+-  : POST https://hyunjun.herokuapp.com/user-registration
+- 로그인 : POST https://hyunjun.herokuapp.com/login
