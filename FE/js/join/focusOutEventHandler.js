@@ -6,21 +6,20 @@ import WARNING_MESSAGE from "./warningMessage.js";
 import {KEYVALUE} from "../common/jsonKeyValue.js";
 
 const userIdHandler = (event, userId) => {
-    const result = validationCheck.checkUserId(userId);
+    let result = validationCheck.checkUserId(userId);
     const idMsg = document.getElementById("idMsg");
-    
-    idMsg.innerHTML = result;
+
+    const data = {"userId" : userId}
+
+    fetchRequest(URL.SERVICE_URL.ID, data)
+    .then(response => response.json())
+    .then(response => {
+        if(response.validation === false)  result = "이미 사용중인 아이디입니다.";
+        
+        idMsg.innerHTML = result;
   
-    (result === "사용 가능한 아이디입니다.") ? changeClass(idMsg, "ok_next_box") : changeClass(idMsg, "error_next_box");
-
-    // server 로 유효성 검사 요청
-    // const data = {userId: "test"}
-
-    // fetchRequest("http://37b0ab9f-726b-4389-9041-add27b33e400.mock.pstmn.io/phone-number-vaildation", data)
-    // .then(response => response.json())
-    // .then(suggestionData => {
-    //     console.log(suggestionData);
-    // });
+        (result === "사용 가능한 아이디입니다.") ? changeClass(idMsg, "ok_next_box") : changeClass(idMsg, "error_next_box");
+    });
 }
 
 const passwordHandler = (event, password) => {
