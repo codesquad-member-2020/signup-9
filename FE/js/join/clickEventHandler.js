@@ -3,18 +3,14 @@ import {fetchRequest} from "../common/fetchRequest.js"
 import {joinValueStatus} from "./joinValueStatus.js";
 import URL from "../common/url.js";
 import { KEYVALUE } from "../common/jsonKeyValue.js";
-import { ELEMENT_ID, ELEMENT_CLASS } from "../common/constant.js";
+import { ELEMENT_ID, ERR_MSG_ELEMENT_ID, ELEMENT_CLASS } from "../common/constant.js";
 import WARNING_MESSAGE from "./warningMessage.js";
 
 const resetHandler = (event, value) => {
-    console.log("resetHandler");
-
     const result = confirm("초기화 하시겠습니까?");
 
-    if (result) {
-    }
-    else {
-    }
+    if (result)
+        resetStatus();
 }
 
 const joinHandler = (event, value) => {
@@ -139,6 +135,26 @@ const checkValueAvailable = () => {
     else if (joinValueStatus.agreementValid() === false) {
         return {resultValue: false, messageValue: WARNING_MESSAGE.JOIN.AGREEMENT};
     }
+}
+
+const resetStatus = () => {
+    const elements = document.querySelectorAll(".int");
+    elements.forEach(element => {
+        element.value = "";
+    });
+
+    const errorElements = document.querySelectorAll(".error_next_box");
+    errorElements.forEach(element => {
+        element.innerHTML = "";
+    });
+
+    const abc = document.querySelectorAll(".tag");
+    abc.forEach(element => {
+        element.remove();
+    });
+
+    const agreement = document.getElementById('agreement');
+    agreement.checked = false;
 }
 
 export {clickEventHandler};
