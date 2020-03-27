@@ -49,8 +49,10 @@ const nameHandler = (event, name) => {
 }
 
 const birthdayHandler = (event, birthDay) => {
-    console.log("birthdayHandler");
     const result = validationCheck.checkBirthday(birthDay.YEAR, birthDay.MONTH, birthDay.DAY);
+    const birthdayMsg = document.getElementById("birthdayMsg");
+
+    birthdayMsg.innerHTML = result; 
 }
 
 const genderHandler = (event, gender) => {
