@@ -7,10 +7,10 @@ import org.springframework.data.repository.query.Param;
 import java.util.Optional;
 
 public interface UserRepository extends CrudRepository<User, Long> {
-//    @Query("select * from User u where u.user_Id = :userId")
+    //    @Query("select * from User u where u.user_Id = :userId")
 //    Optional<User> findByUserId(@Param("userId") String userId);
-@Query("select USER_ID from User u where u.user_Id = :userId")
-Optional<String> findByUserId(@Param("userId") String userId);
+    @Query("select USER_ID from User u where u.user_Id = :userId")
+    Optional<String> findByUserId(@Param("userId") String userId);
 
     @Query("select EMAIL from User u where u.email = :email")
     Optional<String> findByEmail(@Param("email") String email);
@@ -20,4 +20,7 @@ Optional<String> findByUserId(@Param("userId") String userId);
 
     @Query("select PASSWORD from User u where u.PASSWORD = :password")
     Optional<String> findByPassword(@Param("password") String password);
+
+    @Query("select PASSWORD from User u where u.user_Id = :userId")
+    Optional<String> findPasswordByUserId(@Param("userId") String userId);
 }

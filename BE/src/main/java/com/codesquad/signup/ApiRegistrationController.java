@@ -61,10 +61,13 @@ public class ApiRegistrationController {
         String password = (String) jsonObject.get("password");
         logger.info("userId : {} , password: {}", userId, password);
         try {
-            userRepository.findByUserId(userId).orElseThrow(() ->
+            String savedUserId = userRepository.findByUserId(userId).orElseThrow(() ->
                     new IllegalStateException("No user"));
-            userRepository.findByPassword(password).orElseThrow(() ->
+            String savedPassword = userRepository.findPasswordByUserId(savedUserId).orElseThrow(() ->
                     new IllegalStateException("Wrong password"));
+            if (!password.equals(savedPassword)) {
+                return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+            }
 
             httpSession.setAttribute("sessionedUser", userId);
             return new ResponseEntity<>(HttpStatus.OK);
