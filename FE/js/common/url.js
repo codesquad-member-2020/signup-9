@@ -10,8 +10,8 @@ const SERVICE_URL = Object.freeze({
     ID: "https://hyunjun.herokuapp.com/user-id-validation",
     EMAIL: "https://hyunjun.herokuapp.com/email-validation",
     PHONE: "https://hyunjun.herokuapp.com/phone-number-validation",
-    JOIN: "",
-    LOGIN: ""
+    JOIN: "https://hyunjun.herokuapp.com/user-registration",
+    LOGIN: "https://hyunjun.herokuapp.com/login"
 });
 
 export default {MOCKUP_URL, SERVICE_URL};
