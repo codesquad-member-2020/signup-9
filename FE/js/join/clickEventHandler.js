@@ -51,10 +51,14 @@ const joinHandler = (event, value) => {
     };
 
     fetchRequest(URL.SERVICE_URL.JOIN, data)
-        .then(response => response.json())
-        .then(response => {
-            console.log(response);
-        });
+    .then(response => {
+        if (response.status === 200) {
+            alert("회원가입 성공.");
+        }
+        else {
+            alert("회원가입 실패.");
+        }
+    });
 }
 
 const closeHandler = (event, favorites) => {

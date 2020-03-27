@@ -86,6 +86,7 @@ const emailHandler = (event, email) => {
 
     fetchRequest(URL.SERVICE_URL.EMAIL, data)
     .then(response => {
+        console.log("awefwefwe");
         let responseResult = false;
 
         if (response.status === 204)
@@ -94,7 +95,7 @@ const emailHandler = (event, email) => {
 
         result.validation = responseResult;
 
-        if (response.validation === false) {
+        if (result.validation === false) {
             result.message = WARNING_MESSAGE.EMAIL.ALREADY_JOINED;
         }
 
@@ -114,6 +115,7 @@ const phoneHandler = (event, phone) => {
 
     fetchRequest(URL.SERVICE_URL.PHONE, data)
     .then(response => {
+        console.log("awefwefwe");
         let responseResult = false;
 
         if (response.status === 204)
@@ -121,7 +123,7 @@ const phoneHandler = (event, phone) => {
 
         result.validation = responseResult;
 
-        if (response.validation === false) {
+        if (result.validation === false) {
             result.message = WARNING_MESSAGE.PHONE.ALREADY_JOINED;
         }
 

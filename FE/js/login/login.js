@@ -10,7 +10,15 @@ window.addEventListener('DOMContentLoaded', () => {
 
 function login() {
     const data = setLoginData();
-    fetchRequest(URL.SERVICE_URL.LOGIN, data);
+    fetchRequest(URL.SERVICE_URL.LOGIN, data)
+    .then(response => {
+        if (response.status === 200) {
+            alert("로그인 성공.");
+        }
+        else {
+            alert("로그인 실패.");
+        }
+    });
 }
 
 function setLoginData(){
