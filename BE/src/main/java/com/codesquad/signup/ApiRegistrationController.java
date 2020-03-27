@@ -59,6 +59,7 @@ public class ApiRegistrationController {
         JSONObject jsonObject = (JSONObject) new JSONParser().parse(requestUser);
         String userId = (String) jsonObject.get("userId");
         String password = (String) jsonObject.get("password");
+        logger.info("userId : {} , password: {}", userId, password);
         try {
             userRepository.findByUserId(userId).orElseThrow(() ->
                     new IllegalStateException("No user"));
