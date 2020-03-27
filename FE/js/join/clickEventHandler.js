@@ -50,7 +50,15 @@ const joinHandler = (event, value) => {
         [KEYVALUE.FAVORITE]: favoriteValue
     };
 
-    fetchRequest(URL.SERVICE_URL.JOIN, data);
+    fetchRequest(URL.SERVICE_URL.JOIN, data)
+    .then(response => {
+        if (response.status === 200) {
+            alert("회원가입 성공.");
+        }
+        else {
+            alert("회원가입 실패.");
+        }
+    });
 }
 
 const closeHandler = (event, favorites) => {
