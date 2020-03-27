@@ -50,11 +50,7 @@ const joinHandler = (event, value) => {
         [KEYVALUE.FAVORITE]: favoriteValue
     };
 
-    fetchRequest(URL.SERVICE_URL.JOIN, data)
-        .then(response => response.json())
-        .then(response => {
-            console.log(response);
-        });
+    fetchRequest(URL.SERVICE_URL.JOIN, data);
 }
 
 const closeHandler = (event, favorites) => {
