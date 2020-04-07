@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="01e1506c-8653-45b1-bcb0-b6b4cd5a5d90" name="Default Changelist" comment="" />
+    <list default="true" id="01e1506c-8653-45b1-bcb0-b6b4cd5a5d90" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,9 +34,10 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/BE" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -52,6 +60,10 @@
       <workItem from="1585033102166" duration="916000" />
       <workItem from="1585045610301" duration="33000" />
       <workItem from="1585102237606" duration="863000" />
+      <workItem from="1585446538029" duration="18000" />
+      <workItem from="1585562003144" duration="722000" />
+      <workItem from="1585910291499" duration="66000" />
+      <workItem from="1585910405652" duration="183000" />
     </task>
     <servers />
   </component>
@@ -59,13 +71,25 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1585105497985">
+    <state x="588" y="214" width="800" height="677" key="#SQL_Dialects" timestamp="1585910323802">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1585105497985" />
+    <state x="588" y="214" width="800" height="677" key="#SQL_Dialects/67.27.1853.1053@67.27.1853.1053" timestamp="1585910323802" />
+    <state x="840" y="444" width="296" height="216" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1585910337113">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="840" y="444" width="296" height="216" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1585910337113" />
+    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1585910587358">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1585910587358" />
     <state x="216" y="249" width="1544" height="607" key="new project wizard" timestamp="1585105508776">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="216" y="249" width="1544" height="607" key="new project wizard/67.27.1853.1053@67.27.1853.1053" timestamp="1585105508776" />
+    <state x="193" y="256" width="672" height="681" key="search.everywhere.popup" timestamp="1585562202993">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="193" y="256" width="672" height="681" key="search.everywhere.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1585562202993" />
   </component>
 </project>

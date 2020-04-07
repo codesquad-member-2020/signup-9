@@ -20,10 +20,12 @@ public class HomeController {
     public ModelAndView index() {
         return new ModelAndView("/main/index.html");
     }
+
     @GetMapping("/join")
     public ModelAndView hello() {
         return new ModelAndView("/join/index.html");
     }
+
     @GetMapping("/loginForm")
     public ModelAndView login() {
         return new ModelAndView("/login/index.html");

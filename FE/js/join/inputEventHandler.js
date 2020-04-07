@@ -5,7 +5,7 @@ import {joinValueStatus} from "./joinValueStatus.js";
 const favoriteHandler = (event, favorites) => {
     const inputString = event.target.value;
 
-    if (inputString.charAt(0) !== ',' && inputString.charAt(inputString.length-1) ===',') {
+    if (inputString.charAt(0) !== ',' && inputString.charAt(inputString.length - 1) === ',') {
         const slicedString = inputString.slice(0, -1);
 
         const appendContent = `
@@ -17,8 +17,7 @@ const favoriteHandler = (event, favorites) => {
 
         event.target.insertAdjacentHTML('beforebegin', appendContent);
         event.target.value = ''
-    }
-    else if (inputString.charAt(0) === ',') {
+    } else if (inputString.charAt(0) === ',') {
         event.target.value = ''
     }
 }

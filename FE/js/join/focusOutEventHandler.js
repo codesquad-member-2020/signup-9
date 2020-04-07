@@ -15,22 +15,22 @@ const userIdHandler = (event, userId) => {
         return;
     }
 
-    const data = {"userId" : userId}
+    const data = {"userId": userId}
 
     fetchRequest(URL.SERVICE_URL.ID, data)
-    .then(response => {
-        let responseResult = false;
+        .then(response => {
+            let responseResult = false;
 
-        if (response.status === 204)
-            responseResult = true;
+            if (response.status === 204)
+                responseResult = true;
 
-        if (responseResult === false) result.message = "이미 사용중인 아이디입니다.";
+            if (responseResult === false) result.message = "이미 사용중인 아이디입니다.";
 
-        idMsg.innerHTML = result.message;
+            idMsg.innerHTML = result.message;
 
-        (result.message !== "이미 사용중인 아이디입니다.") ? changeClass(idMsg, "ok_next_box") : changeClass(idMsg, "error_next_box");
-        (result.message !== "이미 사용중인 아이디입니다.") ? joinValueStatus.callChangeValid(event.target.id, true) : joinValueStatus.callChangeValid(event.target.id, false);
-    })
+            (result.message !== "이미 사용중인 아이디입니다.") ? changeClass(idMsg, "ok_next_box") : changeClass(idMsg, "error_next_box");
+            (result.message !== "이미 사용중인 아이디입니다.") ? joinValueStatus.callChangeValid(event.target.id, true) : joinValueStatus.callChangeValid(event.target.id, false);
+        })
 }
 
 const passwordHandler = (event, password) => {
@@ -48,7 +48,7 @@ const passwordReconfirmHandler = (event, passwords) => {
     const pswd2Msg = document.getElementById("pswd2Msg");
 
     pswd2Msg.innerHTML = result;
-    (result === "비밀번호가 일치합니다.") ? changeClass(pswd2Msg, "ok_next_box") : changeClass(pswd2Msg, "error_next_box");  
+    (result === "비밀번호가 일치합니다.") ? changeClass(pswd2Msg, "ok_next_box") : changeClass(pswd2Msg, "error_next_box");
     (result === "비밀번호가 일치합니다.") ? joinValueStatus.callChangeValid(event.target.id, true) : joinValueStatus.callChangeValid(event.target.id, false);
 }
 
@@ -64,7 +64,7 @@ const birthdayHandler = (event, birthDay) => {
     const result = validationCheck.checkBirthday(birthDay.YEAR, birthDay.MONTH, birthDay.DAY);
     const birthdayMsg = document.getElementById("birthdayMsg");
 
-    birthdayMsg.innerHTML = result; 
+    birthdayMsg.innerHTML = result;
     (result === "") ? joinValueStatus.callChangeValid(event.target.id, true) : joinValueStatus.callChangeValid(event.target.id, false);
 }
 
@@ -85,22 +85,22 @@ const emailHandler = (event, email) => {
     const data = {[KEYVALUE.EMAIL]: email};
 
     fetchRequest(URL.SERVICE_URL.EMAIL, data)
-    .then(response => {
-        console.log("awefwefwe");
-        let responseResult = false;
+        .then(response => {
+            console.log("awefwefwe");
+            let responseResult = false;
 
-        if (response.status === 204)
-            responseResult = true;
+            if (response.status === 204)
+                responseResult = true;
 
 
-        result.validation = responseResult;
+            result.validation = responseResult;
 
-        if (result.validation === false) {
-            result.message = WARNING_MESSAGE.EMAIL.ALREADY_JOINED;
-        }
+            if (result.validation === false) {
+                result.message = WARNING_MESSAGE.EMAIL.ALREADY_JOINED;
+            }
 
-        handleResult(event, result);
-    })
+            handleResult(event, result);
+        })
 }
 
 const phoneHandler = (event, phone) => {
@@ -114,21 +114,21 @@ const phoneHandler = (event, phone) => {
     const data = {[KEYVALUE.PHONE]: phone};
 
     fetchRequest(URL.SERVICE_URL.PHONE, data)
-    .then(response => {
-        console.log("awefwefwe");
-        let responseResult = false;
+        .then(response => {
+            console.log("awefwefwe");
+            let responseResult = false;
 
-        if (response.status === 204)
-            responseResult = true;
+            if (response.status === 204)
+                responseResult = true;
 
-        result.validation = responseResult;
+            result.validation = responseResult;
 
-        if (result.validation === false) {
-            result.message = WARNING_MESSAGE.PHONE.ALREADY_JOINED;
-        }
+            if (result.validation === false) {
+                result.message = WARNING_MESSAGE.PHONE.ALREADY_JOINED;
+            }
 
-        handleResult(event, result);
-    })
+            handleResult(event, result);
+        })
 }
 
 const favoriteHandler = (event, favorites) => {
@@ -142,7 +142,7 @@ const handleResult = (event, result) => {
     const warningMsgModifier = "Msg";
     const warningMsgElement = event.target.id + warningMsgModifier;
     const targetElement = document.getElementById(warningMsgElement);
-    
+
     targetElement.innerHTML = result.message;
     joinValueStatus.callChangeValid(event.target.id, result.validation);
 }
@@ -165,6 +165,6 @@ function changeClass(element, newClassName) {
     const beforeClassName = element.className;
     element.classList.remove(beforeClassName);
     element.classList.add(newClassName);
-  }
+}
 
 export {focusoutEventHandler};

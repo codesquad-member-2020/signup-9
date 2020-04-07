@@ -5,18 +5,21 @@ body {
     background: #f5f6f7;
     padding-top: 200px;
 }
-.container{
+
+.container {
     width: 460px;
     margin: auto;
     text-align: center;
 }
+
 .login_title {
     font-size: 50px;
     color: #03c75a;
     font-weight: bold;
     margin-bottom: 30px;
 }
-.id,.pswd {
+
+.id, .pswd {
     width: 80%;
     height: 51px;
     border: none;
@@ -25,7 +28,8 @@ body {
     box-sizing: border-box;
     font-size: 15px;
 }
-.btn_login{
+
+.btn_login {
     width: 80%;
     height: 51px;
     background-color: #03c75a;

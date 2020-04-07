@@ -1,7 +1,6 @@
 import {ELEMENT_ID} from "../common/constant.js"
 
-const joinValueStatus = (function() 
-{
+const joinValueStatus = (function () {
     let isUserIdValid = false;
     let isPasswordValid = false;
     let isPasswordReconfirmValid = false;
@@ -13,8 +12,8 @@ const joinValueStatus = (function()
     let isFavoriteValid = false;
     let isAgreementValid = false;
 
-    const changeValid = function(eventId, val) {
-        switch(eventId) {
+    const changeValid = function (eventId, val) {
+        switch (eventId) {
             case ELEMENT_ID.ID: {
                 changeUserIdValid(val);
                 break;
@@ -60,82 +59,82 @@ const joinValueStatus = (function()
         }
     }
 
-    const changeUserIdValid = function(userIdValid) {
+    const changeUserIdValid = function (userIdValid) {
         isUserIdValid = userIdValid;
     }
 
-    const changePasswordValid = function(password) {
+    const changePasswordValid = function (password) {
         isPasswordValid = password;
     }
 
-    const changePasswordReconfirmValid = function(passwordReconfirmValid) {
+    const changePasswordReconfirmValid = function (passwordReconfirmValid) {
         isPasswordReconfirmValid = passwordReconfirmValid;
     }
 
-    const changeNameValid = function(nameValid) {
+    const changeNameValid = function (nameValid) {
         isNameValid = nameValid;
     }
 
-    const changeBirthdayValid = function(birthdayValid) {
+    const changeBirthdayValid = function (birthdayValid) {
         isBirthdayValid = birthdayValid;
     }
 
-    const changeGenderValid = function(genderValid) {
+    const changeGenderValid = function (genderValid) {
         isGenderValid = genderValid;
     }
 
-    const changeEmailValid = function(emailValid) {
+    const changeEmailValid = function (emailValid) {
         isEmailValid = emailValid;
     }
 
-    const changePhoneValid = function(phoneValid) {
+    const changePhoneValid = function (phoneValid) {
         isPhoneValid = phoneValid;
     }
 
-    const changeFavoriteValid = function(favoriteValid) {
+    const changeFavoriteValid = function (favoriteValid) {
         isFavoriteValid = favoriteValid;
     }
 
-    const changeAgreementValid = function(agreementValid) {
+    const changeAgreementValid = function (agreementValid) {
         isAgreementValid = agreementValid;
     }
 
-    return { 
-        callChangeValid: function(event, val) {
+    return {
+        callChangeValid: function (event, val) {
             console.log(event, val)
             changeValid(event, val);
         },
-        userIdValid: function() {
+        userIdValid: function () {
             return isUserIdValid;
         },
-        passwordValid: function() {
+        passwordValid: function () {
             return isPasswordValid;
         },
-        passwordReconfirmValid: function() {
+        passwordReconfirmValid: function () {
             return isPasswordReconfirmValid;
         },
-        nameValid: function() {
+        nameValid: function () {
             return isNameValid;
         },
-        birthdayValid: function() {
+        birthdayValid: function () {
             return isBirthdayValid;
         },
-        genderValid: function() {
+        genderValid: function () {
             return isGenderValid;
         },
-        emailValid: function() {
+        emailValid: function () {
             return isEmailValid;
         },
-        phoneValid: function() {
+        phoneValid: function () {
             return isPhoneValid;
         },
-        favoriteValid: function() {
+        favoriteValid: function () {
             return isFavoriteValid;
         },
-        agreementValid: function() {
+        agreementValid: function () {
             return isAgreementValid;
         },
     };
-})(); 
+})();
 
 export {joinValueStatus};

@@ -1,17 +1,18 @@
 const getElementValue = (elementId) => {
     let result = null;
 
-    switch(elementId) {
+    switch (elementId) {
         case "yy":
         case "mm":
         case "dd": {
-            result = {YEAR: document.getElementById("yy").value,
-                      MONTH: document.getElementById("mm").value,
-                      DAY: document.getElementById("dd").value
+            result = {
+                YEAR: document.getElementById("yy").value,
+                MONTH: document.getElementById("mm").value,
+                DAY: document.getElementById("dd").value
             };
             break;
         }
-        case "closeBtn": 
+        case "closeBtn":
         case "favorite": {
             result = document.getElementById(elementId).parentElement.querySelectorAll(".tag");
             break;
@@ -21,8 +22,10 @@ const getElementValue = (elementId) => {
             break;
         }
         case "pswd2": {
-            result = {PASSWORD: document.getElementById("pswd1").value, 
-                      PASSWORD_RECONFIRM: document.getElementById(elementId).value};
+            result = {
+                PASSWORD: document.getElementById("pswd1").value,
+                PASSWORD_RECONFIRM: document.getElementById(elementId).value
+            };
             break;
         }
         default: {

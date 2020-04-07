@@ -1,4 +1,4 @@
-CREATE TABLE user
+CREATE TABLE if not exists user
 (
     id             int identity,
     user_id        varchar(64),

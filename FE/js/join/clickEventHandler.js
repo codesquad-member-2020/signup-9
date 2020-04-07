@@ -2,8 +2,8 @@ import validationCheck from "./validationCheck.js"
 import {fetchRequest} from "../common/fetchRequest.js"
 import {joinValueStatus} from "./joinValueStatus.js";
 import URL from "../common/url.js";
-import { KEYVALUE } from "../common/jsonKeyValue.js";
-import { ELEMENT_ID, ERR_MSG_ELEMENT_ID, ELEMENT_CLASS } from "../common/constant.js";
+import {KEYVALUE} from "../common/jsonKeyValue.js";
+import {ELEMENT_ID, ERR_MSG_ELEMENT_ID, ELEMENT_CLASS} from "../common/constant.js";
 import WARNING_MESSAGE from "./warningMessage.js";
 
 const resetHandler = (event, value) => {
@@ -51,14 +51,13 @@ const joinHandler = (event, value) => {
     };
 
     fetchRequest(URL.SERVICE_URL.JOIN, data)
-    .then(response => {
-        if (response.status === 200) {
-            alert("회원가입 성공.");
-        }
-        else {
-            alert("회원가입 실패.");
-        }
-    });
+        .then(response => {
+            if (response.status === 200) {
+                alert("회원가입 성공.");
+            } else {
+                alert("회원가입 실패.");
+            }
+        });
 }
 
 const closeHandler = (event, favorites) => {
@@ -67,8 +66,8 @@ const closeHandler = (event, favorites) => {
 
     const favoriteContainer = event.target.parentElement;
 
-    Array.prototype.forEach.call(tagList, function(element, index) {
-        if(element === event.target.parentElement) {
+    Array.prototype.forEach.call(tagList, function (element, index) {
+        if (element === event.target.parentElement) {
             favoriteContainer.parentElement.removeChild(element);
             findResult = true;
 
@@ -105,32 +104,23 @@ const checkValueAvailable = () => {
 
     if (joinValueStatus.userIdValid() === false) {
         return {resultValue: false, messageValue: WARNING_MESSAGE.JOIN.ID};
-    }
-    else if (joinValueStatus.passwordValid() === false) {
+    } else if (joinValueStatus.passwordValid() === false) {
         return {resultValue: false, messageValue: WARNING_MESSAGE.JOIN.PASSWORD};
-    }
-    else if (joinValueStatus.passwordReconfirmValid() === false) {
+    } else if (joinValueStatus.passwordReconfirmValid() === false) {
         return {resultValue: false, messageValue: WARNING_MESSAGE.JOIN.PASSWORD_RECONFIRM};
-    }
-    else if (joinValueStatus.nameValid() === false) {
+    } else if (joinValueStatus.nameValid() === false) {
         return {resultValue: false, messageValue: WARNING_MESSAGE.JOIN.NAME};
-    }
-    else if (joinValueStatus.birthdayValid() === false) {
+    } else if (joinValueStatus.birthdayValid() === false) {
         return {resultValue: false, messageValue: WARNING_MESSAGE.JOIN.BIRTHDAY};
-    }
-    else if (joinValueStatus.genderValid() === false) {
+    } else if (joinValueStatus.genderValid() === false) {
         return {resultValue: false, messageValue: WARNING_MESSAGE.JOIN.GENDER};
-    }
-    else if (joinValueStatus.emailValid() === false) {
+    } else if (joinValueStatus.emailValid() === false) {
         return {resultValue: false, messageValue: WARNING_MESSAGE.JOIN.EMAIL};
-    }
-    else if (joinValueStatus.phoneValid() === false) {
+    } else if (joinValueStatus.phoneValid() === false) {
         return {resultValue: false, messageValue: WARNING_MESSAGE.JOIN.PHONE};
-    }
-    else if (joinValueStatus.favoriteValid() === false) {
+    } else if (joinValueStatus.favoriteValid() === false) {
         return {resultValue: false, messageValue: WARNING_MESSAGE.JOIN.FAVORITE};
-    }
-    else if (joinValueStatus.agreementValid() === false) {
+    } else if (joinValueStatus.agreementValid() === false) {
         return {resultValue: false, messageValue: WARNING_MESSAGE.JOIN.AGREEMENT};
     }
 
