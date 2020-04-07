@@ -2,12 +2,48 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="01e1506c-8653-45b1-bcb0-b6b4cd5a5d90" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/BE/gradlew" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/BE/gradlew.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/babel.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/css/common/lib/reset.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/css/page/join.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/css/page/login.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/css/page/main.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/html/join.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/html/login.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/html/main.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/js/common/constant.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/js/common/eventListenerAppender.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/js/common/fetchRequest.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/js/common/jsonKeyValue.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/js/common/url.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/js/join/clickEventHandler.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/js/join/focusOutEventHandler.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/js/join/inputEventHandler.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/js/join/join.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/js/join/joinValueStatus.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/js/join/validationCheck.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/js/join/valueProvider.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/js/join/warningMessage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/js/login/login.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/js/main/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/webpack.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iOS/SignUp/SignUp.xcodeproj/project.pbxproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iOS/SignUp/SignUp.xcodeproj/project.xcworkspace/contents.xcworkspacedata" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iOS/SignUp/SignUp.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iOS/SignUp/SignUp.xcodeproj/project.xcworkspace/xcuserdata/jinie.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iOS/SignUp/SignUp.xcodeproj/xcuserdata/jinie.xcuserdatad/xcschemes/xcschememanagement.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iOS/SignUp/SignUp/AppDelegate.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iOS/SignUp/SignUp/Assets.xcassets/AppIcon.appiconset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iOS/SignUp/SignUp/Assets.xcassets/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iOS/SignUp/SignUp/Base.lproj/LaunchScreen.storyboard" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iOS/SignUp/SignUp/Base.lproj/Main.storyboard" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iOS/SignUp/SignUp/Info.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iOS/SignUp/SignUp/SceneDelegate.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iOS/SignUp/SignUp/ViewController.swift" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +73,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/BE" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -64,6 +100,7 @@
       <workItem from="1585562003144" duration="722000" />
       <workItem from="1585910291499" duration="66000" />
       <workItem from="1585910405652" duration="183000" />
+      <workItem from="1586243342787" duration="252000" />
     </task>
     <servers />
   </component>
